@@ -198,11 +198,17 @@ class _StartRegisterState extends State<Start_Register> {
             focusedBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
         validator: (value) {
+          final passwordRegex = RegExp(r'[!@#$%^&*(),.?":{}|<>+-/]');
           if (value!.isEmpty) {
             return "Please enter Password.";
-          } else if (value.length < 6) {
+          }
+          if (passwordRegex.hasMatch(value)) {
+            return "Please enter a valid password.";
+          }
+          if (value.length < 6) {
             return "Password should be more than 6 characters.";
-          } else if (value.length > 25) {
+          }
+          if (value.length > 25) {
             return "Password should not be greater than 25 charecters.";
           } else
             return null;

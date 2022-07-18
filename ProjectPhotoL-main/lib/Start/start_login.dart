@@ -101,8 +101,7 @@ class _StartloginState extends State<Startlogin> {
             focusedBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
         validator: (value) {
-          final passwordRegex = RegExp(
-              r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+          final passwordRegex = RegExp(r'[!@#$%^&*(),.?":{}|<>+-/]');
           if (value!.isEmpty) {
             return "Please enter Password.";
           }
