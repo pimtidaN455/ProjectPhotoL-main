@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/Start/start_register.dart';
 import 'package:project_photo_learn/main.dart';
+import 'package:project_photo_learn/profile.dart';
+import 'package:project_photo_learn/re_password.dart';
 
 class Startlogin extends StatefulWidget {
   const Startlogin({Key? key}) : super(key: key);
@@ -52,7 +54,14 @@ class _StartloginState extends State<Startlogin> {
               Emaill(),
               Passwordd(),
               NextToHome(),
-              Regis1(),
+              forgetPass(),
+              Text(
+                '\n----------------------------------------------------------------------\n\n',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 56, 56, 56),
+                ),
+              ),
+              Regis(),
             ],
           ),
         )));
@@ -122,18 +131,33 @@ class _StartloginState extends State<Startlogin> {
 
   Container NextToHome() {
     return Container(
+      padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
       margin: EdgeInsets.only(top: 16),
       width: screen * 0.75,
       child: ElevatedButton(
-        onPressed: () {
+        /*onPressed: () {
           print('--------------- Email and Password ---------------');
           bool validate = _fromKey.currentState!.validate();
           if (validate) {
             print(Email.text);
             print(Password.text);
           }
+        },*/
+        onPressed: () {
+          MaterialPageRoute materialPageRoute = MaterialPageRoute(
+              builder: (BuildContext context) => ProfileState());
+          Navigator.of(this.context).push(materialPageRoute);
         },
-        child: Text('Next'),
+        child: Text(
+          'Next',
+          style: TextStyle(
+            fontSize: 20,
+            color: Color.fromARGB(255, 255, 255, 255),
+            fontWeight: FontWeight.bold,
+            //fontStyle: FontStyle.normal,
+            fontFamily: 'Rajdhani',
+          ),
+        ),
         style: ElevatedButton.styleFrom(
             primary: MyStyle().darkColor,
             shape: RoundedRectangleBorder(
@@ -142,30 +166,42 @@ class _StartloginState extends State<Startlogin> {
     );
   }
 
-  InkWell Regis() {
+  /*InkWell Regis() {
     return InkWell(
-      onTap: () async {
-        await Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => Start_Register(),
-          ),
-        );
-      },
-      child: Text(
-        ' Create Account',
-        style: TextStyle(
-          color: Color(0xFF4B39EF),
-          fontSize: 20,
-          fontFamily: 'Poppins',
-        ),
-      ),
-    );
-  }
+        onTap: () async {
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Start_Register(),
+            ),
+          );
+        },
+        child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Don\'t have an account?',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 56, 56, 56),
+                  fontSize: 15,
+                  fontFamily: 'Poppins',
+                ),
+              ),
+              Text(
+                ' Create Account',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 227, 32, 87),
+                  fontSize: 20,
+                  fontFamily: 'Poppins',
+                ),
+              ),
+            ]));
+  }*/
 
-  Container Regis1() {
+  Container Regis() {
     return Container(
-      padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 24),
+      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -178,7 +214,77 @@ class _StartloginState extends State<Startlogin> {
               fontFamily: 'Poppins',
             ),
           ),
-          Regis()
+          TextButton(
+            child: Text(
+              'Create Account',
+              style: TextStyle(
+                color: Color.fromARGB(255, 80, 13, 204),
+                fontSize: 15,
+                fontFamily: 'Poppins',
+              ),
+            ),
+            onPressed: () {
+              MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                  builder: (BuildContext context) => Start_Register());
+              Navigator.of(this.context).push(materialPageRoute);
+            },
+          )
+        ],
+      ),
+    );
+  }
+
+  /*InkWell forgetP() {
+    return InkWell(
+      onTap: () async {
+        await Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Resetpassword(),
+          ),
+        );
+      },
+      child: Text(
+        ' Reset password',
+        style: TextStyle(
+          color: Color(0xFF4B39EF),
+          fontSize: 20,
+          fontFamily: 'Poppins',
+        ),
+      ),
+    );
+  }*/
+
+  Container forgetPass() {
+    return Container(
+      padding: EdgeInsetsDirectional.fromSTEB(0, 24, 0, 10),
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'forgot password?',
+            style: TextStyle(
+              color: Color.fromARGB(255, 56, 56, 56),
+              fontSize: 15,
+              fontFamily: 'Poppins',
+            ),
+          ),
+          TextButton(
+            child: Text(
+              'Reset password',
+              style: TextStyle(
+                color: Color.fromARGB(255, 80, 13, 204),
+                fontSize: 15,
+                fontFamily: 'Poppins',
+              ),
+            ),
+            onPressed: () {
+              MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                  builder: (BuildContext context) => Start_Register());
+              Navigator.of(this.context).push(materialPageRoute);
+            },
+          )
         ],
       ),
     );
