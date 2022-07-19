@@ -3,7 +3,7 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/main.dart';
-import 'package:project_photo_learn/Start/start_login.dart';
+import 'package:project_photo_learn/page/Start/start_login.dart';
 
 class Start_Register extends StatefulWidget {
   const Start_Register({Key? key}) : super(key: key);

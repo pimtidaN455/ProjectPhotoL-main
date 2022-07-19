@@ -2,9 +2,9 @@ import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
-import 'package:project_photo_learn/Start/start_register.dart';
+import 'package:project_photo_learn/page/Start/start_register.dart';
 import 'package:project_photo_learn/main.dart';
-import 'package:project_photo_learn/profile.dart';
+import 'package:project_photo_learn/page/profile.dart';
 import 'package:project_photo_learn/re_password.dart';
 
 class Startlogin extends StatefulWidget {

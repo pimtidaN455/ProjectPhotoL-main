@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_photo_learn/Howto/HowtoList/howto1.dart';
-import 'package:project_photo_learn/Howto/howtouse.dart';
+import 'package:project_photo_learn/page/Howto/HowtoList/howto1.dart';
+import 'package:project_photo_learn/page/Howto/howtouse.dart';
 import 'package:project_photo_learn/main.dart';
 
 class HowToUse2 extends StatefulWidget {
