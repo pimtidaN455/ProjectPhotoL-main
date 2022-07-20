@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/Start/start_register.dart';
 import 'package:project_photo_learn/main.dart';
+import 'package:project_photo_learn/page/first.dart';
 import 'package:project_photo_learn/page/profile.dart';
 import 'package:project_photo_learn/re_password.dart';
 
@@ -135,18 +136,16 @@ class _StartloginState extends State<Startlogin> {
       margin: EdgeInsets.only(top: 16),
       width: screen * 0.75,
       child: ElevatedButton(
-        /*onPressed: () {
+        onPressed: () {
           print('--------------- Email and Password ---------------');
           bool validate = _fromKey.currentState!.validate();
           if (validate) {
+            MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                builder: (BuildContext context) => FirstState());
+            Navigator.of(this.context).push(materialPageRoute);
             print(Email.text);
             print(Password.text);
           }
-        },*/
-        onPressed: () {
-          MaterialPageRoute materialPageRoute = MaterialPageRoute(
-              builder: (BuildContext context) => ProfileState());
-          Navigator.of(this.context).push(materialPageRoute);
         },
         child: Text(
           'Next',

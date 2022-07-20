@@ -13,16 +13,18 @@ class _ProfileState extends State<ProfileState> {
     final items = <Widget>[
       Icon(Icons.home, size: 30),
       Icon(Icons.search, size: 30),
-      Icon(Icons.favorite, size: 30),
-      Icon(Icons.settings, size: 30),
+      //Icon(Icons.favorite, size: 30),
+      //Icon(Icons.settings, size: 30),
+      Icon(Icons.cloud, size: 30),
       Icon(Icons.person, size: 30),
     ];
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       bottomNavigationBar: CurvedNavigationBar(
         items: items,
       ),
+      
     );
   }
 }
