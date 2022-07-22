@@ -3,6 +3,11 @@ import 'dart:html';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project_photo_learn/main.dart';
+import 'package:project_photo_learn/page/PagesF/HomePage.dart';
+import 'package:project_photo_learn/page/PagesF/PersonPage.dart';
+import 'package:project_photo_learn/page/PagesF/SearchPage.dart';
+import 'package:project_photo_learn/page/PagesF/Cloudpage.dart';
 
 class FirstState extends StatefulWidget {
   const FirstState({Key? key}) : super(key: key);
@@ -13,26 +18,15 @@ class FirstState extends StatefulWidget {
 class _FirstState extends State<FirstState> {
   int index = 0;
   final Screen = [
-    Center(
+    /*Center(
         child: Text(
       'Home',
       style: TextStyle(fontSize: 72),
-    )),
-    Center(
-        child: Text(
-      'search',
-      style: TextStyle(fontSize: 72),
-    )),
-    Center(
-        child: Text(
-      'cloud',
-      style: TextStyle(fontSize: 72),
-    )),
-    Center(
-        child: Text(
-      'person',
-      style: TextStyle(fontSize: 72),
-    ))
+    )),*/
+    Homepage(),
+    Searchpage(),
+    Cloundpage(),
+    Personpage()
   ];
 
   Widget build(BuildContext context) => Scaffold(
@@ -50,6 +44,7 @@ class _FirstState extends State<FirstState> {
                 setState(() => this.index = index),
 
             destinations: [
+              //NavigationDestination(icon: Icon(Icons.search), label: "search"),
               NavigationDestination(icon: Icon(Icons.home), label: "home"),
               NavigationDestination(icon: Icon(Icons.search), label: "search"),
               NavigationDestination(icon: Icon(Icons.cloud), label: "cloud"),
