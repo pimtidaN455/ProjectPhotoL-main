@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/Start/start_register.dart';
 import 'package:project_photo_learn/main.dart';
-import 'package:project_photo_learn/page/first.dart';
-import 'package:project_photo_learn/page/profile.dart';
+import 'package:project_photo_learn/page/PagesF/first.dart';
 import 'package:project_photo_learn/re_password.dart';
 
 class Startlogin extends StatefulWidget {
@@ -36,36 +35,39 @@ class _StartloginState extends State<Startlogin> {
           ),
           backgroundColor: Color.fromARGB(255, 0, 0, 0),
         ),
-        body: Center(
-            child: Form(
-          key: _fromKey,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Login',
-                style: TextStyle(
-                  fontSize: 50,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  fontWeight: FontWeight.bold,
-                  //fontStyle: FontStyle.normal,
-                  fontFamily: 'Rajdhani',
-                ),
-              ),
-              Emaill(),
-              Passwordd(),
-              NextToHome(),
-              forgetPass(),
-              Text(
-                '\n----------------------------------------------------------------------\n\n',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 56, 56, 56),
-                ),
-              ),
-              Regis(),
-            ],
-          ),
-        )));
+        body: Container(
+            alignment: Alignment.topCenter,
+            child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                child: Form(
+                  key: _fromKey,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'Login',
+                        style: TextStyle(
+                          fontSize: 50,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontWeight: FontWeight.bold,
+                          //fontStyle: FontStyle.normal,
+                          fontFamily: 'Rajdhani',
+                        ),
+                      ),
+                      Emaill(),
+                      Passwordd(),
+                      NextToHome(),
+                      forgetPass(),
+                      Text(
+                        '\n----------------------------------------------------------------------\n\n',
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 56, 56, 56),
+                        ),
+                      ),
+                      Regis(),
+                    ],
+                  ),
+                ))));
   }
 
   Container Emaill() {
@@ -280,7 +282,7 @@ class _StartloginState extends State<Startlogin> {
             ),
             onPressed: () {
               MaterialPageRoute materialPageRoute = MaterialPageRoute(
-                  builder: (BuildContext context) => Start_Register());
+                  builder: (BuildContext context) => Resetpassword());
               Navigator.of(this.context).push(materialPageRoute);
             },
           )

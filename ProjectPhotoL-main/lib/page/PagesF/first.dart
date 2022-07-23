@@ -1,9 +1,9 @@
 //import 'dart:html';
 
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
+//import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project_photo_learn/main.dart';
+//import 'package:project_photo_learn/main.dart';
 import 'package:project_photo_learn/page/PagesF/HomePage.dart';
 import 'package:project_photo_learn/page/PagesF/PersonPage.dart';
 import 'package:project_photo_learn/page/PagesF/SearchPage.dart';

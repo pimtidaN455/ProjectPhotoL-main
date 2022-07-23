@@ -1,11 +1,11 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:project_photo_learn/page/Howto/howtouse.dart';
+//import 'package:project_photo_learn/page/Howto/howtouse.dart';
 import 'package:project_photo_learn/page/Howto/sumlong.dart';
-import 'package:project_photo_learn/page/Start/start_register.dart';
+//import 'package:project_photo_learn/page/Start/start_register.dart';
 import 'package:project_photo_learn/page/Start/start_login.dart';
-import 'package:project_photo_learn/my_style.dart';
+//import 'package:project_photo_learn/my_style.dart';
 
 void main() => runApp(MyApp());
 

@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
-import 'package:project_photo_learn/main.dart';
+//import 'package:project_photo_learn/main.dart';
 import 'package:project_photo_learn/page/Start/start_login.dart';
 
 class Start_Register extends StatefulWidget {
@@ -22,7 +22,6 @@ class _StartRegisterState extends State<Start_Register> {
   //สร้างตัวแปร fromKey
   final _fromKey = GlobalKey<FormState>();
 
-  @override
   bool _isObscure = true;
 
   Widget build(BuildContext context) {
@@ -38,31 +37,34 @@ class _StartRegisterState extends State<Start_Register> {
           ),
           backgroundColor: Color.fromARGB(255, 0, 0, 0),
         ),
-        body: Center(
-            child: Form(
-          key: _fromKey,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                'Create Account',
-                style: TextStyle(
-                  fontSize: 50,
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  fontWeight: FontWeight.bold,
-                  //fontStyle: FontStyle.normal,
-                  fontFamily: 'Rajdhani',
-                ),
-              ),
-              FirstName(),
-              LastName(),
-              Emailre(),
-              PassWordre(),
-              conFP(),
-              NextToHome(),
-            ],
-          ),
-        )));
+        body: Container(
+            alignment: Alignment.topCenter,
+            child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
+                child: Form(
+                  key: _fromKey,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        'Create Account',
+                        style: TextStyle(
+                          fontSize: 50,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontWeight: FontWeight.bold,
+                          //fontStyle: FontStyle.normal,
+                          fontFamily: 'Rajdhani',
+                        ),
+                      ),
+                      FirstName(),
+                      LastName(),
+                      Emailre(),
+                      PassWordre(),
+                      conFP(),
+                      NextToHome(),
+                    ],
+                  ),
+                ))));
   }
 
   Container NextToHome() {

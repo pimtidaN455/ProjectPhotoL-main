@@ -1,10 +1,19 @@
 //import 'dart:html';
 import 'package:flutter/material.dart';
+import 'package:project_photo_learn/page/PagesF/first.dart';
 
 class Personpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios_new),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => FirstState()));
+            },
+          ),
+        ),
         body: Container(
           alignment: Alignment.center,
           padding: EdgeInsets.symmetric(horizontal: 48),
