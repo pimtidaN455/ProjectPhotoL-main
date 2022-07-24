@@ -9,19 +9,8 @@ class Searchpage extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Column(children: <Widget>[
-      /*AppBar(
-        backgroundColor: Color.fromARGB(255, 105, 25, 255),
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new),
-          onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => FirstState()));
-          },
-        ),
-      ),*/
       AppBar(
-        backgroundColor: Color.fromARGB(255, 105, 25, 255),
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
         title: Text(""),
         automaticallyImplyLeading: false,
       ),
@@ -31,16 +20,16 @@ class Searchpage extends StatelessWidget {
             children: <Widget>[
               Container(
                 padding: EdgeInsets.only(left: 20, right: 20, bottom: 56),
-                height: size.height * 0.2 - 27,
+                height: size.height * 0.2 - 60,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 105, 25, 255),
+                  color: Color.fromARGB(255, 0, 0, 0),
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(36),
                       bottomRight: Radius.circular(36)),
                 ),
                 child: Row(children: <Widget>[
                   Text(
-                    'Search',
+                    'Searchhh',
                     style: TextStyle(
                       fontSize: 30,
                       color: Color.fromARGB(255, 255, 255, 255),
@@ -52,13 +41,14 @@ class Searchpage extends StatelessWidget {
                 ]),
               ),
               Positioned(
-                  bottom: 0,
+                  bottom: 30,
                   left: 0,
                   right: 0,
                   child: Container(
                     padding: EdgeInsets.symmetric(horizontal: 20),
                     margin: EdgeInsets.symmetric(horizontal: 20),
-                    height: 54,
+                    height: 54, //ความสูงของกรอบเสิร์ช
+
                     //padding: EdgeInsetsDirectional.fromSTEB(50, 50, 50, 50),
                     decoration: BoxDecoration(
                         color: Colors.white,
@@ -67,8 +57,8 @@ class Searchpage extends StatelessWidget {
                           BoxShadow(
                             offset: Offset(0, 10),
                             blurRadius: 50,
-                            color: Color.fromARGB(255, 105, 25, 255)
-                                .withOpacity(0.23),
+                            color:
+                                Color.fromARGB(255, 0, 0, 0).withOpacity(0.23),
                           )
                         ]),
                     child: Row(

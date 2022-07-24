@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 //import 'package:project_photo_learn/page/Howto/howtouse.dart';
 import 'package:project_photo_learn/page/Howto/sumlong.dart';
+import 'package:project_photo_learn/page/PagesF/SearchPage.dart';
+import 'package:project_photo_learn/page/PagesF/first.dart';
 //import 'package:project_photo_learn/page/Start/start_register.dart';
 import 'package:project_photo_learn/page/Start/start_login.dart';
 //import 'package:project_photo_learn/my_style.dart';
@@ -121,7 +123,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       onPressed: () {
         MaterialPageRoute materialPageRoute =
-            MaterialPageRoute(builder: (BuildContext context) => Startlogin());
+            //MaterialPageRoute(builder: (BuildContext context) => Startlogin());
+            MaterialPageRoute(builder: (BuildContext context) => FirstState());
         Navigator.of(this.context).push(materialPageRoute);
       },
     );
