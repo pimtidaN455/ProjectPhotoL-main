@@ -6,26 +6,18 @@ class Cloundpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back_ios_new),
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => FirstState()));
-            },
+          backgroundColor: Color.fromARGB(255, 255, 255, 255),
+          title: Text(
+            "Clound",
+            style: TextStyle(
+              fontSize: 30,
+              color: Color.fromARGB(255, 0, 0, 0),
+              fontWeight: FontWeight.bold,
+              //fontStyle: FontStyle.normal,
+              fontFamily: 'Rajdhani',
+            ),
           ),
-        ),
-        body: Container(
-          alignment: Alignment.center,
-          padding: EdgeInsets.symmetric(horizontal: 48),
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Text('Cloundpage',
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                  color: Color.fromARGB(255, 0, 0, 0),
-                  fontSize: 35,
-                  fontFamily: 'Poppins',
-                ))
-          ]),
+          automaticallyImplyLeading: false,
         ),
       );
 }

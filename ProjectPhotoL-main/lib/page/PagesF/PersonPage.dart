@@ -29,11 +29,11 @@ class Personpage extends StatelessWidget {
                     bottomRight: Radius.circular(36)),
               ),
             ),
-            Positioned(
+            Container(
               //height: 60,
               //bottom: 0,
-              left: 0,
-              right: 0,
+              //left: 0,
+              //right: 0,
               child: Container(
                 alignment: Alignment.topCenter,
                 padding: EdgeInsets.symmetric(horizontal: 20),
@@ -42,7 +42,7 @@ class Personpage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
-                    Container(
+                    /*Container(
                       margin: EdgeInsets.only(bottom: 10),
                       height: 120,
                       width: 120,
@@ -52,26 +52,8 @@ class Personpage extends StatelessWidget {
                           image: DecorationImage(
                               fit: BoxFit.cover,
                               image: AssetImage('images/Profile.jpg'))),
-                    ),
-                    Text(
-                      "pimtida promaut",
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontSize: 20,
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      "noey.caramel@gmail.com",
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 41, 41, 41),
-                        fontSize: 15,
-                        fontFamily: 'Poppins',
-                      ),
-                    ),
+                    ),*/
+
                     /*Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 20, vertical: 10),
@@ -99,12 +81,47 @@ class Personpage extends StatelessWidget {
                         ),
                       ),
                     )*/
-                    howtoPersonP(),
-                    settingPersonP()
+                    //howtoPersonP(),
+                    //settingPersonP()
                   ],
                 ),
               ),
-            )
+            ),
+            Container(
+                //padding: EdgeInsets.only(left: 20, right: 20, bottom: 56),
+                //height: size.height * 0.2 - 60,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    "pimtida promaut",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      fontSize: 20,
+                      fontFamily: 'Poppins',
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "noey.caramel@gmail.com",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      fontSize: 15,
+                      fontFamily: 'Poppins',
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  howtoPersonP(),
+                  settingPersonP(),
+                  Text("pdfkiogdrf,gvpoli,derfgved")
+                ])),
           ],
         ),
       ),
@@ -113,10 +130,10 @@ class Personpage extends StatelessWidget {
 
   Padding settingPersonP() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
       child: FlatButton(
         padding: EdgeInsets.all(20),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         color: Color.fromARGB(255, 223, 224, 226),
         onPressed: () {},
         child: Row(
@@ -141,10 +158,10 @@ class Personpage extends StatelessWidget {
 
   Padding howtoPersonP() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
       child: FlatButton(
         padding: EdgeInsets.all(20),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         color: Color.fromARGB(255, 223, 224, 226),
         onPressed: () {},
         child: Row(
@@ -170,6 +187,7 @@ class Personpage extends StatelessWidget {
   AppBar buildAppBar() {
     return AppBar(
       backgroundColor: Colors.black,
+
       title: Text(
         "Profile",
         style: TextStyle(
@@ -180,7 +198,7 @@ class Personpage extends StatelessWidget {
           fontFamily: 'Rajdhani',
         ),
       ),
-      centerTitle: true,
+      //centerTitle: true,
       automaticallyImplyLeading: false,
     );
   }
