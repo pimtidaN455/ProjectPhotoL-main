@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 //import 'package:project_photo_learn/page/Howto/howtouse.dart';
-import 'package:project_photo_learn/page/Howto/sumlong.dart';
+import 'package:project_photo_learn/page/Howto/howtouse.dart';
 import 'package:project_photo_learn/page/PagesF/SearchPage.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 //import 'package:project_photo_learn/page/Start/start_register.dart';
