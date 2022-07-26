@@ -5,7 +5,7 @@
 import 'package:flutter/material.dart';
 //import 'package:project_photo_learn/main.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/HomePage.dart';
-import 'package:project_photo_learn/page/PagesF/PersonPage.dart';
+import 'package:project_photo_learn/page/PagesF/PagePerson/PersonPage.dart';
 import 'package:project_photo_learn/page/PagesF/SearchPage.dart';
 import 'package:project_photo_learn/page/PagesF/Cloudpage.dart';
 

@@ -1,9 +1,13 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
-import 'package:project_photo_learn/page/Start/StartPage.dart';
+import 'package:project_photo_learn/page/PagesF/PagePerson/alrert_dialog.dart';
 
 class Personpage extends StatelessWidget {
-  Start_page get context => Start_page();
+  String title = 'AlertDialog';
+  bool tappedYes = false;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -118,12 +122,23 @@ class Personpage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),
                       color: MyStyle().grayColor,
-                      onPressed: () {
+                      onPressed: () async {
+                        final action = await AlertDialogs.yesCancelDialog(
+                            context, 'Logout', 'are you sure?');
+                        if (action == DialogsAction.yes) {
+                          (() => tappedYes = true);
+                        } else {
+                          (() => tappedYes = false);
+                        }
+                      },
+
+                      /*onPressed: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => Start_page()));
-                      },
+                      },*/
+
                       child: Row(
                         children: [
                           Icon(Icons.key),
