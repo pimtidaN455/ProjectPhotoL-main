@@ -85,7 +85,7 @@ class _StartRegisterState extends State<Start_Register> {
           }
         },
         style: ElevatedButton.styleFrom(
-            primary: MyStyle().darkColor,
+            primary: MyStyle().blackColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10))),
       ),

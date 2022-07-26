@@ -1,10 +1,6 @@
-//import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
-//import 'package:projecst_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/Start/start_login.dart';
-//import 'package:project_photo_learn/main.dart';
 
 class Resetpassword extends StatefulWidget {
   const Resetpassword({Key? key}) : super(key: key);
@@ -29,7 +25,7 @@ class _ResetpasswordState extends State<Resetpassword> {
                   MaterialPageRoute(builder: (context) => Startlogin()));
             },
           ),
-          backgroundColor: Color.fromARGB(255, 0, 0, 0),
+          backgroundColor: MyStyle().blackColor,
         ),
         body: Container(
             alignment: Alignment.topCenter,
@@ -44,7 +40,7 @@ class _ResetpasswordState extends State<Resetpassword> {
                         'Reset password',
                         style: TextStyle(
                           fontSize: 50,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: MyStyle().blackColor,
                           fontWeight: FontWeight.bold,
                           //fontStyle: FontStyle.normal,
                           fontFamily: 'Rajdhani',
@@ -105,14 +101,14 @@ class _ResetpasswordState extends State<Resetpassword> {
           'Next',
           style: TextStyle(
             fontSize: 20,
-            color: Color.fromARGB(255, 255, 255, 255),
+            color: MyStyle().whiteColor,
             fontWeight: FontWeight.bold,
             //fontStyle: FontStyle.normal,
             fontFamily: 'Rajdhani',
           ),
         ),
         style: ElevatedButton.styleFrom(
-            primary: MyStyle().darkColor,
+            primary: MyStyle().blackColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10))),
       ),

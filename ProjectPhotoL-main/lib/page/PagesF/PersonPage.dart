@@ -1,14 +1,9 @@
-//import 'dart:html';
-// ignore_for_file: deprecated_member_use
-
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
-//import 'package:project_photo_learn/page/PagesF/first.dart';
+import 'package:project_photo_learn/my_style.dart';
+import 'package:project_photo_learn/page/Start/StartPage.dart';
 
 class Personpage extends StatelessWidget {
+  Start_page get context => Start_page();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -23,73 +18,13 @@ class Personpage extends StatelessWidget {
               padding: EdgeInsets.only(left: 20, right: 20, bottom: 56),
               height: size.height * 0.2 - 60,
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 0, 0, 0),
+                color: MyStyle().blackColor,
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(36),
                     bottomRight: Radius.circular(36)),
               ),
             ),
             Container(
-              //height: 60,
-              //bottom: 0,
-              //left: 0,
-              //right: 0,
-              child: Container(
-                alignment: Alignment.topCenter,
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                margin: EdgeInsets.symmetric(horizontal: 20),
-                //height: 54, //ความสูงของกรอบเสิร์ช
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    /*Container(
-                      margin: EdgeInsets.only(bottom: 10),
-                      height: 120,
-                      width: 120,
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.white, width: 4),
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage('images/Profile.jpg'))),
-                    ),*/
-
-                    /*Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
-                      child: FlatButton(
-                        padding: EdgeInsets.all(20),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        color: Color.fromARGB(255, 223, 224, 226),
-                        onPressed: () {},
-                        child: Row(
-                          children: [
-                            Icon(Icons.settings),
-                            SizedBox(width: 20),
-                            Expanded(
-                                child: Text(
-                              "Setting",
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 41, 41, 41),
-                                fontSize: 15,
-                                fontFamily: 'Poppins',
-                              ),
-                            )),
-                            Icon(Icons.arrow_forward_ios_outlined)
-                          ],
-                        ),
-                      ),
-                    )*/
-                    //howtoPersonP(),
-                    //settingPersonP()
-                  ],
-                ),
-              ),
-            ),
-            Container(
-                //padding: EdgeInsets.only(left: 20, right: 20, bottom: 56),
-                //height: size.height * 0.2 - 60,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
@@ -99,7 +34,7 @@ class Personpage extends StatelessWidget {
                   Text(
                     "pimtida promaut",
                     style: TextStyle(
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      color: MyStyle().whiteColor,
                       fontSize: 20,
                       fontFamily: 'Poppins',
                     ),
@@ -110,7 +45,7 @@ class Personpage extends StatelessWidget {
                   Text(
                     "noey.caramel@gmail.com",
                     style: TextStyle(
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      color: MyStyle().whiteColor,
                       fontSize: 15,
                       fontFamily: 'Poppins',
                     ),
@@ -118,66 +53,97 @@ class Personpage extends StatelessWidget {
                   SizedBox(
                     height: 40,
                   ),
-                  howtoPersonP(),
-                  settingPersonP(),
-                  Text("pdfkiogdrf,gvpoli,derfgved")
+                  ///////////// How to ///////////////
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 50, vertical: 10),
+                    child: FlatButton(
+                      padding: EdgeInsets.all(20),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)),
+                      color: MyStyle().grayColor,
+                      onPressed: () {},
+                      child: Row(
+                        children: [
+                          Icon(Icons.book),
+                          SizedBox(width: 20),
+                          Expanded(
+                              child: Text(
+                            "How to use",
+                            style: TextStyle(
+                              color: MyStyle().darkColor,
+                              fontSize: 15,
+                              fontFamily: 'Poppins',
+                            ),
+                          )),
+                          Icon(Icons.arrow_forward_ios_outlined)
+                        ],
+                      ),
+                    ),
+                  ),
+                  ///////////// Setting ///////////////
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 50, vertical: 10),
+                    child: FlatButton(
+                      padding: EdgeInsets.all(20),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)),
+                      color: MyStyle().grayColor,
+                      onPressed: () {},
+                      child: Row(
+                        children: [
+                          Icon(Icons.settings),
+                          SizedBox(width: 20),
+                          Expanded(
+                              child: Text(
+                            "Setting",
+                            style: TextStyle(
+                              color: MyStyle().darkColor,
+                              fontSize: 15,
+                              fontFamily: 'Poppins',
+                            ),
+                          )),
+                          Icon(Icons.arrow_forward_ios_outlined)
+                        ],
+                      ),
+                    ),
+                  ),
+                  ///////////// Logout ///////////////
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 50, vertical: 10),
+                    child: FlatButton(
+                      padding: EdgeInsets.all(20),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30)),
+                      color: MyStyle().grayColor,
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Start_page()));
+                      },
+                      child: Row(
+                        children: [
+                          Icon(Icons.key),
+                          SizedBox(width: 20),
+                          Expanded(
+                              child: Text(
+                            "Logout",
+                            style: TextStyle(
+                              color: MyStyle().darkColor,
+                              fontSize: 15,
+                              fontFamily: 'Poppins',
+                            ),
+                          )),
+                          Icon(Icons.arrow_forward_ios_outlined)
+                        ],
+                      ),
+                    ),
+                  ),
+                  //Text("อ้ากกกกกกกกกกกกกกกกกกกกกกก")
                 ])),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Padding settingPersonP() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-      child: FlatButton(
-        padding: EdgeInsets.all(20),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        color: Color.fromARGB(255, 223, 224, 226),
-        onPressed: () {},
-        child: Row(
-          children: [
-            Icon(Icons.settings),
-            SizedBox(width: 20),
-            Expanded(
-                child: Text(
-              "Setting",
-              style: TextStyle(
-                color: Color.fromARGB(255, 41, 41, 41),
-                fontSize: 15,
-                fontFamily: 'Poppins',
-              ),
-            )),
-            Icon(Icons.arrow_forward_ios_outlined)
-          ],
-        ),
-      ),
-    );
-  }
-
-  Padding howtoPersonP() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-      child: FlatButton(
-        padding: EdgeInsets.all(20),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-        color: Color.fromARGB(255, 223, 224, 226),
-        onPressed: () {},
-        child: Row(
-          children: [
-            Icon(Icons.book),
-            SizedBox(width: 20),
-            Expanded(
-                child: Text(
-              "How to use",
-              style: TextStyle(
-                color: Color.fromARGB(255, 41, 41, 41),
-                fontSize: 15,
-                fontFamily: 'Poppins',
-              ),
-            )),
-            Icon(Icons.arrow_forward_ios_outlined)
           ],
         ),
       ),
@@ -186,19 +152,16 @@ class Personpage extends StatelessWidget {
 
   AppBar buildAppBar() {
     return AppBar(
-      backgroundColor: Colors.black,
-
+      backgroundColor: MyStyle().blackColor,
       title: Text(
         "Profile",
         style: TextStyle(
           fontSize: 30,
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: MyStyle().whiteColor,
           fontWeight: FontWeight.bold,
-          //fontStyle: FontStyle.normal,
           fontFamily: 'Rajdhani',
         ),
       ),
-      //centerTitle: true,
       automaticallyImplyLeading: false,
     );
   }

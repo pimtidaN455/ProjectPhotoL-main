@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/HomePage.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImageSliderPage.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/place.dart';
@@ -15,19 +16,19 @@ class ShowImage extends StatelessWidget {
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back_ios_new,
-              color: Colors.black,
+              color: MyStyle().blackColor,
             ),
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => FirstState()));
             },
           ),
-          backgroundColor: Color.fromARGB(255, 255, 255, 255),
+          backgroundColor: MyStyle().whiteColor,
           title: Text(
             this.name,
             style: TextStyle(
               fontSize: 30,
-              color: Color.fromARGB(255, 0, 0, 0),
+              color: MyStyle().blackColor,
               fontWeight: FontWeight.bold,
               //fontStyle: FontStyle.normal,
               fontFamily: 'Rajdhani',

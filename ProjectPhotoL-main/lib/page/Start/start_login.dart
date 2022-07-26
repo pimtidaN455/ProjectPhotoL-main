@@ -33,7 +33,7 @@ class _StartloginState extends State<Startlogin> {
                   context, MaterialPageRoute(builder: (context) => MyApp()));
             },
           ),
-          backgroundColor: Color.fromARGB(255, 0, 0, 0),
+          backgroundColor: MyStyle().blackColor,
         ),
         body: Container(
             alignment: Alignment.topCenter,
@@ -48,7 +48,7 @@ class _StartloginState extends State<Startlogin> {
                         'Login',
                         style: TextStyle(
                           fontSize: 50,
-                          color: Color.fromARGB(255, 0, 0, 0),
+                          color: MyStyle().blackColor,
                           fontWeight: FontWeight.bold,
                           //fontStyle: FontStyle.normal,
                           fontFamily: 'Rajdhani',
@@ -142,25 +142,35 @@ class _StartloginState extends State<Startlogin> {
           print('--------------- Email and Password ---------------');
           bool validate = _fromKey.currentState!.validate();
           if (validate) {
-            MaterialPageRoute materialPageRoute = MaterialPageRoute(
-                builder: (BuildContext context) => FirstState());
-            Navigator.of(this.context).push(materialPageRoute);
-            print(Email.text);
-            print(Password.text);
+            ////////////////////////////cheack/////////////////////////
+            String status_login = 'success';
+            if (status_login == 'success') {
+              ////////////////////// เปลี่ยนสถานะ login //////////////////
+
+              MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                  builder: (BuildContext context) => FirstState());
+              Navigator.of(this.context).push(materialPageRoute);
+              print(Email.text);
+              print(Password.text);
+            } else {
+              MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                  builder: (BuildContext context) => Startlogin());
+              Navigator.of(this.context).push(materialPageRoute);
+            }
           }
         },
         child: Text(
           'Next',
           style: TextStyle(
             fontSize: 20,
-            color: Color.fromARGB(255, 255, 255, 255),
+            color: MyStyle().whiteColor,
             fontWeight: FontWeight.bold,
             //fontStyle: FontStyle.normal,
             fontFamily: 'Rajdhani',
           ),
         ),
         style: ElevatedButton.styleFrom(
-            primary: MyStyle().darkColor,
+            primary: MyStyle().blackColor,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10))),
       ),
@@ -210,7 +220,7 @@ class _StartloginState extends State<Startlogin> {
           Text(
             'Don\'t have an account?',
             style: TextStyle(
-              color: Color.fromARGB(255, 56, 56, 56),
+              color: MyStyle().darkColor,
               fontSize: 15,
               fontFamily: 'Poppins',
             ),
@@ -219,7 +229,7 @@ class _StartloginState extends State<Startlogin> {
             child: Text(
               'Create Account',
               style: TextStyle(
-                color: Color.fromARGB(255, 80, 13, 204),
+                color: MyStyle().perpleColor,
                 fontSize: 15,
                 fontFamily: 'Poppins',
               ),
@@ -266,7 +276,7 @@ class _StartloginState extends State<Startlogin> {
           Text(
             'forgot password?',
             style: TextStyle(
-              color: Color.fromARGB(255, 56, 56, 56),
+              color: MyStyle().darkColor,
               fontSize: 15,
               fontFamily: 'Poppins',
             ),
@@ -275,7 +285,7 @@ class _StartloginState extends State<Startlogin> {
             child: Text(
               'Reset password',
               style: TextStyle(
-                color: Color.fromARGB(255, 80, 13, 204),
+                color: MyStyle().perpleColor,
                 fontSize: 15,
                 fontFamily: 'Poppins',
               ),
