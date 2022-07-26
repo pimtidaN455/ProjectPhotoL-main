@@ -11,11 +11,12 @@ class Places {
       Place(
           image: 'images/Profile.jpg',
           title: 'srtgh',
-          subtitle: 'fedhgsedrtfgh'),
+          subtitle: 'fedhgsedrtfgh')
     ];
   }
 }
 
+////////////////////////////////////////////////////////////
 class AllImages {
   List<AllImage> getAllImages() {
     return [

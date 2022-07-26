@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/place.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/showImage.dart';
+import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImagePage.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 
 class Homepage extends StatelessWidget {
