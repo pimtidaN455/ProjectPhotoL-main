@@ -1,8 +1,4 @@
-//import 'dart:html';
 import 'package:flutter/material.dart';
-//import 'package:project_photo_learn/main.dart';
-//import 'package:project_photo_learn/page/PagesF/first.dart';
-//import 'package:project_photo_learn/page/PagesF/first.dart';
 
 class Searchpage extends StatelessWidget {
   @override
@@ -34,7 +30,6 @@ class Searchpage extends StatelessWidget {
                       fontSize: 30,
                       color: Color.fromARGB(255, 255, 255, 255),
                       fontWeight: FontWeight.bold,
-                      //fontStyle: FontStyle.normal,
                       fontFamily: 'Rajdhani',
                     ),
                   )
@@ -75,8 +70,7 @@ class Searchpage extends StatelessWidget {
                                   suffixIcon: IconButton(
                                     icon: Icon(Icons.search),
                                     onPressed: () {},
-                                  ) //Icon(Icons.search)
-                                  )),
+                                  ))),
                         ),
                       ],
                     ),

@@ -1,5 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/PagesF/PagePerson/alrert_dialog.dart';
@@ -125,11 +127,6 @@ class Personpage extends StatelessWidget {
                       onPressed: () async {
                         final action = await AlertDialogs.yesCancelDialog(
                             context, 'Logout', 'are you sure?');
-                        if (action == DialogsAction.yes) {
-                          (() => tappedYes = true);
-                        } else {
-                          (() => tappedYes = false);
-                        }
                       },
 
                       /*onPressed: () {

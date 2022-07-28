@@ -18,6 +18,7 @@ class _StartloginState extends State<Startlogin> {
 
   TextEditingController Email = TextEditingController();
   TextEditingController Password = TextEditingController();
+  bool _isObscure = true;
   //สร้างตัวแปร fromKey
   final _fromKey = GlobalKey<FormState>();
 
@@ -104,10 +105,19 @@ class _StartloginState extends State<Startlogin> {
       width: screen * 0.8,
       child: TextFormField(
         controller: Password,
-        //maxLength: 25,
+        //maxLength: 25, จำกัด 25 ตัว
+        obscureText: _isObscure,
         decoration: InputDecoration(
             labelText: 'Password',
             prefixIcon: Icon(Icons.password),
+            suffixIcon: IconButton(
+                icon:
+                    Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+                onPressed: () {
+                  setState(() {
+                    _isObscure = !_isObscure;
+                  });
+                }),
             enabledBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
             focusedBorder:
@@ -177,39 +187,6 @@ class _StartloginState extends State<Startlogin> {
     );
   }
 
-  /*InkWell Regis() {
-    return InkWell(
-        onTap: () async {
-          await Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Start_Register(),
-            ),
-          );
-        },
-        child: Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                'Don\'t have an account?',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 56, 56, 56),
-                  fontSize: 15,
-                  fontFamily: 'Poppins',
-                ),
-              ),
-              Text(
-                ' Create Account',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 227, 32, 87),
-                  fontSize: 20,
-                  fontFamily: 'Poppins',
-                ),
-              ),
-            ]));
-  }*/
-
   Container Regis() {
     return Container(
       padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
@@ -244,27 +221,6 @@ class _StartloginState extends State<Startlogin> {
       ),
     );
   }
-
-  /*InkWell forgetP() {
-    return InkWell(
-      onTap: () async {
-        await Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => Resetpassword(),
-          ),
-        );
-      },
-      child: Text(
-        ' Reset password',
-        style: TextStyle(
-          color: Color(0xFF4B39EF),
-          fontSize: 20,
-          fontFamily: 'Poppins',
-        ),
-      ),
-    );
-  }*/
 
   Container forgetPass() {
     return Container(

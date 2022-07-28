@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_photo_learn/my_style.dart';
+import 'package:project_photo_learn/page/Start/start_login.dart';
 
 enum DialogsAction { yes, cancel }
 
@@ -10,39 +10,40 @@ class AlertDialogs {
     String body,
   ) async {
     final action = await showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0)),
-            title: Text(title),
-            content: Text(body),
-            actions: <Widget>[
-              FlatButton(
-                  onPressed: () =>
-                      Navigator.of(context).pop(DialogsAction.cancel),
-                  child: Text(
-                    'Cancel',
-                    style: TextStyle(
-                      color: MyStyle().darkColor,
-                      fontSize: 20,
-                      fontFamily: 'Poppins',
-                    ),
-                  )),
-              FlatButton(
-                  onPressed: () => Navigator.of(context).pop(DialogsAction.yes),
-                  child: Text(
-                    'Confirm',
-                    style: TextStyle(
-                      color: MyStyle().darkColor,
-                      fontSize: 20,
-                      fontFamily: 'Poppins',
-                    ),
-                  ))
-            ],
-          );
-        });
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+          title: Text(title),
+          content: Text(body),
+          actions: <Widget>[
+            FlatButton(
+              onPressed: () => Navigator.of(context).pop(DialogsAction.cancel),
+              child: Text(
+                'Cancel',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 0, 0, 0),
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            FlatButton(
+              //onPressed: () => Navigator.of(context).pop(DialogsAction.yes),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Startlogin()));
+              },
+              child: Text(
+                'Confirm',
+                style: TextStyle(
+                    color: Color(0xFFC41A3B), fontWeight: FontWeight.w700),
+              ),
+            )
+          ],
+        );
+      },
+    );
     return (action != null) ? action : DialogsAction.cancel;
   }
 }
