@@ -1,25 +1,35 @@
-import 'dart:html';
-import 'dart:math';
-
-import 'package:carousel_slider/carousel_options.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImagePage.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/place.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
-import 'package:project_photo_learn/page/PagesF/first.dart';
 
 class SlideImage extends StatelessWidget {
   @override
+  String namealbum;
+  SlideImage({required this.namealbum});
+
   Widget build(BuildContext context) {
+    print(this.namealbum);
     return MaterialApp(
-      title: "",
       home: Scaffold(
         appBar: AppBar(
-          title: Text("data"),
+          title: Text(this.namealbum),
           centerTitle: true,
-          automaticallyImplyLeading: false,
+          automaticallyImplyLeading: true,
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios_new,
+              color: MyStyle().blackColor,
+            ),
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ShowImage(name: this.namealbum)));
+              print("ส่งชื่ออัลบั้มไปที่ ShowImage" + this.namealbum);
+            },
+          ),
         ),
         /* appBar: AppBar(
           leading: IconButton(
@@ -58,6 +68,7 @@ class Body extends StatefulWidget {
 
 class _Body extends State<Body> {
   //List<AllImage> imageListS = AllImages().getAllImages();
+
   int currentIndex = 0;
   final PageController controller = PageController();
 

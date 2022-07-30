@@ -35,37 +35,43 @@ class ShowImage extends StatelessWidget {
           ),
           automaticallyImplyLeading: false,
         ),
-        body: Allimages(),
+        body: Allimages(nameAlbum: this.name),
       );
 }
 
 class Allimages extends StatelessWidget {
+  var nameAlbum;
+  Allimages({this.nameAlbum});
+
   @override
   Widget build(BuildContext context) {
+    //print(nameAlbum.toString());
     return GridView.extent(
       maxCrossAxisExtent: 150,
       mainAxisSpacing: 8,
       crossAxisSpacing: 8,
       padding: EdgeInsets.all(8),
       childAspectRatio: 1 / 1.2,
-      children: gridItems(),
+      children: gridItems(nameAlbum),
     );
   }
 }
 
-List<Widget> gridItems() {
+List<Widget> gridItems(nameAlbum) {
   return AllImages()
       .getAllImages()
-      .map<Widget>((allimage) => _GridItem(allimage))
+      .map<Widget>((allimage) => _GridItem(allimage, nameAlbum))
       .toList();
 }
 
 class _GridItem extends StatelessWidget {
-  _GridItem(this.allimage);
-
+  _GridItem(this.allimage, this.nameAlbum);
+  var nameAlbum;
   final AllImage allimage;
   @override
   Widget build(BuildContext context) {
+    print(nameAlbum);
+    print("oooooooooooooooooooooooooooooooooooooooooooooooooooo");
     return Card(
         clipBehavior: Clip.antiAlias,
         elevation: 10,
@@ -84,7 +90,11 @@ class _GridItem extends StatelessWidget {
           ),
           onTap: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SlideImage()));
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        SlideImage(namealbum: nameAlbum.toString())));
+            print("ส่งชื่ออัลบั้มไปที่ SlideImage" + nameAlbum.toString());
           },
         ));
   }

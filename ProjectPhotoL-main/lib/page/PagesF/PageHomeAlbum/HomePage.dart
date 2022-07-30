@@ -95,6 +95,7 @@ class _GridItem extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => ShowImage(name: place.title)));
+            print("ส่งชื่ออัลบั้มไปที่ showimage" + place.title);
           },
         ));
   }
