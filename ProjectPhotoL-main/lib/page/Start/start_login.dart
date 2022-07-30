@@ -79,6 +79,12 @@ class _StartloginState extends State<Startlogin> {
         controller: Email,
         decoration: InputDecoration(
             labelText: 'E-mail',
+            suffixIcon: IconButton(
+              onPressed: () {
+                Email.clear();
+              },
+              icon: const Icon(Icons.clear),
+            ),
             prefixIcon: Icon(Icons.email_outlined),
             enabledBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30)),

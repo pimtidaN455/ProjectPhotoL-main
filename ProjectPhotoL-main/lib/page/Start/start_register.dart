@@ -102,6 +102,12 @@ class _StartRegisterState extends State<Start_Register> {
         decoration: InputDecoration(
             labelText: 'FirstName',
             prefixIcon: Icon(Icons.perm_identity),
+            suffixIcon: IconButton(
+              onPressed: () {
+                FirstNameRe.clear();
+              },
+              icon: const Icon(Icons.clear),
+            ),
             enabledBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
             focusedBorder:
@@ -130,6 +136,12 @@ class _StartRegisterState extends State<Start_Register> {
         decoration: InputDecoration(
             labelText: 'LastName',
             prefixIcon: Icon(Icons.perm_identity),
+            suffixIcon: IconButton(
+              onPressed: () {
+                LastNameRe.clear();
+              },
+              icon: const Icon(Icons.clear),
+            ),
             enabledBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
             focusedBorder:
@@ -157,6 +169,12 @@ class _StartRegisterState extends State<Start_Register> {
         decoration: InputDecoration(
             labelText: 'E-mail',
             prefixIcon: Icon(Icons.email_outlined),
+            suffixIcon: IconButton(
+              onPressed: () {
+                EmailRe.clear();
+              },
+              icon: const Icon(Icons.clear),
+            ),
             enabledBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
             focusedBorder:

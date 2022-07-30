@@ -11,6 +11,7 @@ class Resetpassword extends StatefulWidget {
 class _ResetpasswordState extends State<Resetpassword> {
   late double screen;
   TextEditingController Emailrepass = TextEditingController();
+  bool _isObscure = true;
   final _fromKey = GlobalKey<FormState>();
 
   @override
@@ -62,6 +63,12 @@ class _ResetpasswordState extends State<Resetpassword> {
         decoration: InputDecoration(
             labelText: 'E-mail',
             prefixIcon: Icon(Icons.email_outlined),
+            suffixIcon: IconButton(
+              onPressed: () {
+                Emailrepass.clear();
+              },
+              icon: const Icon(Icons.clear),
+            ),
             enabledBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
             focusedBorder:

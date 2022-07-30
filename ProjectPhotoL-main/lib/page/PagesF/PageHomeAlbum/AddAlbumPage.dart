@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/HomePage.dart';
+import 'package:project_photo_learn/page/PagesF/first.dart';
 
 class Add_Album_Page extends StatefulWidget {
   const Add_Album_Page({Key? key}) : super(key: key);
@@ -28,8 +28,8 @@ class Add_Album_PageState extends State<Add_Album_Page> {
               color: Colors.black,
             ),
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Homepage()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => FirstState()));
             },
           ),
           backgroundColor: MyStyle().whiteColor,
@@ -70,14 +70,20 @@ class Add_Album_PageState extends State<Add_Album_Page> {
                 ))));
   }
 
-  Container AddKeywordSubJ() {
+  Container AddNameSubJ() {
     return Container(
       margin: EdgeInsets.only(top: 16, bottom: 16),
       width: screen * 0.8,
       child: TextFormField(
-        controller: Add_Keyword_SubJ,
+        controller: Add_Name_SubJ,
         decoration: InputDecoration(
-            labelText: 'Add keyword',
+            suffixIcon: IconButton(
+              onPressed: () {
+                Add_Name_SubJ.clear();
+              },
+              icon: const Icon(Icons.clear),
+            ),
+            labelText: 'Name of suject',
             //prefixIcon: Icon(Icons.email_outlined),
             enabledBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
@@ -98,14 +104,20 @@ class Add_Album_PageState extends State<Add_Album_Page> {
     );
   }
 
-  Container AddNameSubJ() {
+  Container AddKeywordSubJ() {
     return Container(
       margin: EdgeInsets.only(top: 16, bottom: 16),
       width: screen * 0.8,
       child: TextFormField(
-        controller: Add_Name_SubJ,
+        controller: Add_Keyword_SubJ,
         decoration: InputDecoration(
-            labelText: 'Name of suject',
+            suffixIcon: IconButton(
+              onPressed: () {
+                Add_Name_SubJ.clear();
+              },
+              icon: const Icon(Icons.clear),
+            ),
+            labelText: 'Add keyword',
             //prefixIcon: Icon(Icons.email_outlined),
             enabledBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
