@@ -39,6 +39,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   curved_navigation_bar : ^1.0.1
   flutter_svg: ^1.1.1+1
+  http: ^0.13.4
+  image_picker: ^0.8.5+3
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +75,10 @@ flutter:
   assets:
    - images/logo2.png
    - images/Profile.jpg
+   - images/picinalbum0-_1__1.jpg
+   - images/picinalbum0-_2__1.jpg
+   - images/picinalbum0-_3__1.jpg
+   - images/picinalbum0-_4__1.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

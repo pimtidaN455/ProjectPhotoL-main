@@ -2,8 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
+import 'package:project_photo_learn/page/Backend/Check_User.dart';
+import 'package:project_photo_learn/page/Start/StartPage.dart';
 import 'package:project_photo_learn/page/Start/start_register.dart';
-import 'package:project_photo_learn/main.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 import 'package:project_photo_learn/re_password.dart';
 
@@ -30,8 +31,8 @@ class _StartloginState extends State<Startlogin> {
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => MyApp()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Start_page()));
             },
           ),
           backgroundColor: MyStyle().blackColor,
@@ -60,7 +61,7 @@ class _StartloginState extends State<Startlogin> {
                       NextToHome(),
                       forgetPass(),
                       Text(
-                        '\n----------------------------------------------------------------------\n\n',
+                        '\n------------------------------------------------\n',
                         style: TextStyle(
                           color: Color.fromARGB(255, 56, 56, 56),
                         ),
@@ -158,11 +159,10 @@ class _StartloginState extends State<Startlogin> {
           print('--------------- Email and Password ---------------');
           bool validate = _fromKey.currentState!.validate();
           if (validate) {
+            check_user checkuse = new check_user();
             ////////////////////////////cheack/////////////////////////
-            String status_login = 'success';
-            if (status_login == 'success') {
+            if (checkuse.login(Email.text, Password.text, "000")) {
               ////////////////////// เปลี่ยนสถานะ login //////////////////
-
               MaterialPageRoute materialPageRoute = MaterialPageRoute(
                   builder: (BuildContext context) => FirstState());
               Navigator.of(this.context).push(materialPageRoute);

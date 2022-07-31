@@ -1,9 +1,13 @@
 //import 'dart:html';
 import 'package:flutter/material.dart';
-import 'package:project_photo_learn/page/PagesF/first.dart';
+import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImageSliderPage.dart';
+import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/place.dart';
+import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 
 class Cloundpage extends StatelessWidget {
   @override
+  var name;
+  Cloundpage({this.name});
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 255, 255, 255),
@@ -19,5 +23,64 @@ class Cloundpage extends StatelessWidget {
           ),
           automaticallyImplyLeading: false,
         ),
+        body: Allimages(nameAlbum: this.name),
       );
+}
+
+class Allimages extends StatelessWidget {
+  var nameAlbum;
+  Allimages({this.nameAlbum});
+
+  @override
+  Widget build(BuildContext context) {
+    //print(nameAlbum.toString());
+    return GridView.extent(
+      maxCrossAxisExtent: 150,
+      mainAxisSpacing: 8,
+      crossAxisSpacing: 8,
+      padding: EdgeInsets.all(8),
+      childAspectRatio: 1 / 1.2,
+      children: gridItemsC(nameAlbum),
+    );
+  }
+}
+
+List<Widget> gridItemsC(nameAlbum) {
+  return AllImages()
+      .getAllImages()
+      .map<Widget>((allimage) => _GridItemC(allimage, nameAlbum))
+      .toList();
+}
+
+class _GridItemC extends StatelessWidget {
+  var nameAlbum;
+  final AllImage allimages;
+
+  _GridItemC(this.allimages, this.nameAlbum);
+  @override
+  Widget build(BuildContext context) {
+    print(nameAlbum);
+    print("oooooooooooooooooooooooooooooooooooooooooooooooooooo");
+    return Card(
+        clipBehavior: Clip.antiAlias,
+        elevation: 10,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+        child: InkWell(
+          child: GridTile(
+            child: Ink.image(
+              image: AssetImage(allimages.image),
+              fit: BoxFit.cover,
+            ),
+          ),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => SlideImage(
+                          namealbum: nameAlbum.toString(),
+                        )));
+            print("ส่งชื่ออัลบั้มไปที่ SlideImage" + nameAlbum.toString());
+          },
+        ));
+  }
 }

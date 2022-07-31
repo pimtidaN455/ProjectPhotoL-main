@@ -92,8 +92,9 @@ class _GridItem extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) =>
-                        SlideImage(namealbum: nameAlbum.toString())));
+                    builder: (context) => SlideImage(
+                          namealbum: nameAlbum.toString(),
+                        )));
             print("ส่งชื่ออัลบั้มไปที่ SlideImage" + nameAlbum.toString());
           },
         ));

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_photo_learn/page/Backend/User_data.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 import 'package:project_photo_learn/page/Start/StartPage.dart';
 
@@ -11,7 +12,9 @@ class MyApp extends StatelessWidget {
     bool i = true;
     var page_material;
 
-    if (i) {
+    user_file usedata = new user_file();
+
+    if (usedata.Login) {
       page_material = FirstState();
     } else {
       page_material = Start_page();

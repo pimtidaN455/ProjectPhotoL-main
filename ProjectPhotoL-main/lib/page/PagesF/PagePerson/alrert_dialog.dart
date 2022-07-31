@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project_photo_learn/main.dart';
+import 'package:project_photo_learn/page/Backend/Check_User.dart';
+import 'package:project_photo_learn/page/Start/StartPage.dart';
 import 'package:project_photo_learn/page/Start/start_login.dart';
 
 enum DialogsAction { yes, cancel }
@@ -31,8 +34,10 @@ class AlertDialogs {
             FlatButton(
               //onPressed: () => Navigator.of(context).pop(DialogsAction.yes),
               onPressed: () {
+                check_user chuse = new check_user();
+                chuse.logout();
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Startlogin()));
+                    MaterialPageRoute(builder: (context) => Start_page()));
               },
               child: Text(
                 'Confirm',

@@ -20,11 +20,10 @@ class Places {
 class AllImages {
   List<AllImage> getAllImages() {
     return [
-      AllImage(image: 'images/Profile.jpg'),
-      AllImage(image: 'images/Profile.jpg'),
-      AllImage(image: 'images/Profile.jpg'),
-      AllImage(image: 'images/Profile.jpg'),
-      AllImage(image: 'images/Profile.jpg'),
+      AllImage(image: 'images/picinalbum0-_1__1.jpg'),
+      AllImage(image: 'images/picinalbum0-_2__1.jpg'),
+      AllImage(image: 'images/picinalbum0-_3__1.jpg'),
+      AllImage(image: 'images/picinalbum0-_4__1.jpg'),
     ];
   }
 }

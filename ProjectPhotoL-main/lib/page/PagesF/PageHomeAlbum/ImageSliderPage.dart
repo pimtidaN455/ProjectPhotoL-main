@@ -14,8 +14,12 @@ class SlideImage extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text(this.namealbum),
+          title: Text(this.namealbum,
+              style: TextStyle(
+                color: MyStyle().blackColor,
+              )),
           centerTitle: true,
+          backgroundColor: MyStyle().whiteColor,
           automaticallyImplyLeading: true,
           leading: IconButton(
             icon: Icon(
@@ -31,30 +35,6 @@ class SlideImage extends StatelessWidget {
             },
           ),
         ),
-        /* appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios_new,
-              color: MyStyle().blackColor,
-            ),
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ShowImage()));
-            },
-          ),
-          backgroundColor: MyStyle().whiteColor,
-          title: Text(
-            "photo",
-            style: TextStyle(
-              fontSize: 30,
-              color: MyStyle().blackColor,
-              fontWeight: FontWeight.bold,
-              //fontStyle: FontStyle.normal,
-              fontFamily: 'Rajdhani',
-            ),
-          ),
-          automaticallyImplyLeading: false,
-        ),*/
         body: Body(),
       ),
     );
