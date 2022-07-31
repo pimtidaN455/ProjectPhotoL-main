@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
+import 'package:project_photo_learn/page/PagesF/PageClound/CloudPage.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImagePage.dart';
+import 'package:project_photo_learn/page/PagesF/first.dart';
 
-class SlideImage extends StatelessWidget {
+class SlideImageC extends StatelessWidget {
   @override
-  String namealbum;
-  SlideImage({required this.namealbum});
+  int startImg;
+  String namealbumC;
+
+  SlideImageC({required this.namealbumC, required this.startImg});
 
   Widget build(BuildContext context) {
-    print(this.namealbum);
+    print(this.namealbumC);
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text(this.namealbum,
+          title: Text(this.namealbumC,
               style: TextStyle(
                 color: MyStyle().blackColor,
               )),
@@ -28,39 +32,38 @@ class SlideImage extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => ShowImage(name: this.namealbum)));
-              print("ส่งชื่ออัลบั้มไปที่ ShowImage" + this.namealbum);
+                      builder: (context) => FirstState(
+                            page: 2,
+                          )));
+              print("ส่งชื่ออัลบั้มไปที่ ShowImage" + this.namealbumC);
             },
           ),
         ),
-        body: Body(),
+        body: Body(startImg: startImg),
       ),
     );
   }
 }
 
 class Body extends StatefulWidget {
+  int startImg;
+  Body({required this.startImg});
+
   @override
-  State<Body> createState() => _Body();
+  State<Body> createState() => _Body(startImg: startImg);
 }
 
 class _Body extends State<Body> {
-  //List<AllImage> imageListS = AllImages().getAllImages();
-
+  int startImg;
+  _Body({required this.startImg});
   int currentIndex = 0;
   final PageController controller = PageController();
-
-  List<String> imagelist = [
+  List<String> imagelistC = [
     "https://picsum.photos/id/240/200/300",
     "https://picsum.photos/id/241/200/300",
     "https://picsum.photos/id/242/200/300",
     "https://picsum.photos/id/243/200/300",
     "https://picsum.photos/id/244/200/300",
-    "https://picsum.photos/id/250/200/300",
-    "https://picsum.photos/id/251/200/300",
-    "https://picsum.photos/id/252/200/300",
-    "https://picsum.photos/id/253/200/300",
-    "https://picsum.photos/id/254/200/300",
   ];
 
   @override
@@ -76,7 +79,7 @@ class _Body extends State<Body> {
               controller: controller,
               onPageChanged: (index) {
                 setState(() {
-                  currentIndex = index % imagelist.length;
+                  currentIndex = index % imagelistC.length;
                 });
               },
               itemBuilder: (context, index) {
@@ -86,7 +89,8 @@ class _Body extends State<Body> {
                     height: 300,
                     width: double.infinity,
                     child: Image.network(
-                      imagelist[index % imagelist.length],
+                      //////////////////////////////รับค่า int เปลี่ยนหน้า ////////////////////////////////
+                      imagelistC[this.startImg % imagelistC.length],
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -100,7 +104,7 @@ class _Body extends State<Body> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              for (var i = 0; i < imagelist.length; i++)
+              for (var i = 0; i < imagelistC.length; i++)
                 buildIndicator(currentIndex == i)
             ],
           ),

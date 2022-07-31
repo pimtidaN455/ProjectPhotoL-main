@@ -15,6 +15,7 @@ class user_file {
   }
 
   getdata_user_file() {
+    print("--------------------getdata_user_file------------------");
     var data_json = jsonDecode(filepath_W.readAsStringSync());
 
     Email = data_json['Email'];
@@ -53,9 +54,12 @@ class user_file {
     return data_json;*/
   }
 
-  write_user_file(map_data) async {
+  write_user_file(map_data) {
     var user = jsonEncode(map_data);
-    filepath_W.writeAsString(user);
+    var file = filepath_W.writeAsStringSync(user);
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+    print(map_data);
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     /* await File('./ProjectPhotoL-main/lib/Backend/datafile/client_data.json')
         .writeAsString(user);*/
     return "Write_Success";

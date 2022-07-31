@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
+import 'package:project_photo_learn/page/PagesF/first.dart';
 import 'package:project_photo_learn/page/Start/start_login.dart';
 
 class Resetpassword extends StatefulWidget {
-  const Resetpassword({Key? key}) : super(key: key);
+  //const Resetpassword({Key? key}) : super(key: key);
+  String pagere;
+  Resetpassword({required this.pagere});
   @override
-  _ResetpasswordState createState() => _ResetpasswordState();
+  _ResetpasswordState createState() => _ResetpasswordState(pagereset: pagere);
 }
 
 class _ResetpasswordState extends State<Resetpassword> {
+  String pagereset;
+  _ResetpasswordState({required this.pagereset});
+
+  dynamic Request_page = FirstState(page: 3);
+
   late double screen;
   TextEditingController Emailrepass = TextEditingController();
   bool _isObscure = true;
@@ -22,8 +30,11 @@ class _ResetpasswordState extends State<Resetpassword> {
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
             onPressed: () {
+              if (pagereset == "login") {
+                Request_page = Startlogin();
+              }
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Startlogin()));
+                  MaterialPageRoute(builder: (context) => Request_page));
             },
           ),
           backgroundColor: MyStyle().blackColor,

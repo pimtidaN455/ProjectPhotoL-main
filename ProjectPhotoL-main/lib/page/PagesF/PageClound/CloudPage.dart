@@ -1,6 +1,6 @@
 //import 'dart:html';
 import 'package:flutter/material.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImageSliderPage.dart';
+import 'package:project_photo_learn/page/PagesF/PageClound/ImageSliderPageClound.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/place.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 
@@ -46,8 +46,11 @@ class Allimages extends StatelessWidget {
 }
 
 List<Widget> gridItemsC(nameAlbum) {
+  AllImages alllll = new AllImages();
+  print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+  print(alllll.getAllImagesClound().runtimeType);
   return AllImages()
-      .getAllImages()
+      .getAllImagesClound()
       .map<Widget>((allimage) => _GridItemC(allimage, nameAlbum))
       .toList();
 }
@@ -67,8 +70,8 @@ class _GridItemC extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
         child: InkWell(
           child: GridTile(
-            child: Ink.image(
-              image: AssetImage(allimages.image),
+            child: Image.network(
+              allimages.image,
               fit: BoxFit.cover,
             ),
           ),
@@ -76,9 +79,8 @@ class _GridItemC extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => SlideImage(
-                          namealbum: nameAlbum.toString(),
-                        )));
+                    builder: (context) => SlideImageC(
+                        namealbumC: nameAlbum.toString(), startImg: 2)));
             print("ส่งชื่ออัลบั้มไปที่ SlideImage" + nameAlbum.toString());
           },
         ));

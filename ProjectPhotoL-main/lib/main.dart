@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     user_file usedata = new user_file();
 
     if (usedata.Login) {
-      page_material = FirstState();
+      page_material = FirstState(page: 0);
     } else {
       page_material = Start_page();
     }

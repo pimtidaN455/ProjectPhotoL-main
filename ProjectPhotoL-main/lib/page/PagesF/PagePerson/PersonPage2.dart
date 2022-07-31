@@ -2,7 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
+import 'package:project_photo_learn/page/Backend/User_data.dart';
+import 'package:project_photo_learn/page/Howto/howtouse.dart';
 import 'package:project_photo_learn/page/PagesF/PagePerson/alrert_dialog.dart';
+import 'package:project_photo_learn/re_password.dart';
 
 class Person_page1 extends StatefulWidget {
   const Person_page1({Key? key}) : super(key: key);
@@ -13,6 +16,7 @@ class Person_page1 extends StatefulWidget {
 class _Start_pageState extends State<Person_page1> {
   String title = 'AlertDialog';
   bool tappedYes = false;
+  user_file user = new user_file();
 
   @override
   Widget build(BuildContext context) {
@@ -57,127 +61,160 @@ class _Start_pageState extends State<Person_page1> {
             ),
           ),
           Container(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                SizedBox(
-                  height: 5,
+              child:
+                  Column(mainAxisAlignment: MainAxisAlignment.start, children: <
+                      Widget>[
+            SizedBox(
+              height: 5,
+            ),
+            Text(
+              user.Firstname + ' ' + user.Lastname,
+              style: TextStyle(
+                color: MyStyle().whiteColor,
+                fontSize: 20,
+                fontFamily: 'Poppins',
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              user.Email,
+              style: TextStyle(
+                color: MyStyle().whiteColor,
+                fontSize: 15,
+                fontFamily: 'Poppins',
+              ),
+            ),
+            SizedBox(
+              height: 40,
+            ),
+            ///////////// How to ///////////////
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+              child: FlatButton(
+                padding: EdgeInsets.all(20),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)),
+                color: MyStyle().grayColor,
+                onPressed: () {
+                  MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                      builder: (BuildContext context) =>
+                          HowToUse2(pagehow: "personpage"));
+                  Navigator.of(this.context).push(materialPageRoute);
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.book),
+                    SizedBox(width: 20),
+                    Expanded(
+                        child: Text(
+                      "How to use",
+                      style: TextStyle(
+                        color: MyStyle().darkColor,
+                        fontSize: 15,
+                        fontFamily: 'Poppins',
+                      ),
+                    )),
+                    Icon(Icons.arrow_forward_ios_outlined)
+                  ],
                 ),
-                Text(
-                  "pimtida promaut",
-                  style: TextStyle(
-                    color: MyStyle().whiteColor,
-                    fontSize: 20,
-                    fontFamily: 'Poppins',
-                  ),
+              ),
+            ),
+            ///////////// Setting ///////////////
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+              child: FlatButton(
+                padding: EdgeInsets.all(20),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)),
+                color: MyStyle().grayColor,
+                onPressed: () {},
+                child: Row(
+                  children: [
+                    Icon(Icons.settings),
+                    SizedBox(width: 20),
+                    Expanded(
+                        child: Text(
+                      "Setting",
+                      style: TextStyle(
+                        color: MyStyle().darkColor,
+                        fontSize: 15,
+                        fontFamily: 'Poppins',
+                      ),
+                    )),
+                    Icon(Icons.arrow_forward_ios_outlined)
+                  ],
                 ),
-                SizedBox(
-                  height: 10,
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+              child: FlatButton(
+                padding: EdgeInsets.all(20),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)),
+                color: MyStyle().grayColor,
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Resetpassword(pagere: "home")));
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.settings),
+                    SizedBox(width: 20),
+                    Expanded(
+                        child: Text(
+                      "Reset password",
+                      style: TextStyle(
+                        color: MyStyle().darkColor,
+                        fontSize: 15,
+                        fontFamily: 'Poppins',
+                      ),
+                    )),
+                    Icon(Icons.arrow_forward_ios_outlined)
+                  ],
                 ),
-                Text(
-                  "noey.caramel@gmail.com",
-                  style: TextStyle(
-                    color: MyStyle().whiteColor,
-                    fontSize: 15,
-                    fontFamily: 'Poppins',
-                  ),
+              ),
+            ),
+            ///////////// Logout ///////////////
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+              child: RaisedButton(
+                onPressed: () async {
+                  final action = await AlertDialogs.yesCancelDialog(
+                      context, 'Logout', 'are you sure?');
+                  if (action == DialogsAction.yes) {
+                    setState(() => tappedYes = true);
+                  } else {
+                    setState(() => tappedYes = false);
+                  }
+                },
+                padding: EdgeInsets.all(20),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30)),
+                color: MyStyle().grayColor,
+                child: Row(
+                  children: [
+                    Icon(Icons.key),
+                    SizedBox(width: 20),
+                    Expanded(
+                        child: Text(
+                      "Logout",
+                      style: TextStyle(
+                        color: MyStyle().darkColor,
+                        fontSize: 15,
+                        fontFamily: 'Poppins',
+                      ),
+                    )),
+                    Icon(Icons.arrow_forward_ios_outlined)
+                  ],
                 ),
-                SizedBox(
-                  height: 40,
-                ),
-                ///////////// How to ///////////////
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-                  child: FlatButton(
-                    padding: EdgeInsets.all(20),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    color: MyStyle().grayColor,
-                    onPressed: () {},
-                    child: Row(
-                      children: [
-                        Icon(Icons.book),
-                        SizedBox(width: 20),
-                        Expanded(
-                            child: Text(
-                          "How to use",
-                          style: TextStyle(
-                            color: MyStyle().darkColor,
-                            fontSize: 15,
-                            fontFamily: 'Poppins',
-                          ),
-                        )),
-                        Icon(Icons.arrow_forward_ios_outlined)
-                      ],
-                    ),
-                  ),
-                ),
-                ///////////// Setting ///////////////
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-                  child: FlatButton(
-                    padding: EdgeInsets.all(20),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    color: MyStyle().grayColor,
-                    onPressed: () {},
-                    child: Row(
-                      children: [
-                        Icon(Icons.settings),
-                        SizedBox(width: 20),
-                        Expanded(
-                            child: Text(
-                          "Setting",
-                          style: TextStyle(
-                            color: MyStyle().darkColor,
-                            fontSize: 15,
-                            fontFamily: 'Poppins',
-                          ),
-                        )),
-                        Icon(Icons.arrow_forward_ios_outlined)
-                      ],
-                    ),
-                  ),
-                ),
-                ///////////// Logout ///////////////
-                Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 50, vertical: 10),
-                  child: RaisedButton(
-                    onPressed: () async {
-                      final action = await AlertDialogs.yesCancelDialog(
-                          context, 'Logout', 'are you sure?');
-                      if (action == DialogsAction.yes) {
-                        setState(() => tappedYes = true);
-                      } else {
-                        setState(() => tappedYes = false);
-                      }
-                    },
-                    padding: EdgeInsets.all(20),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30)),
-                    color: MyStyle().grayColor,
-                    child: Row(
-                      children: [
-                        Icon(Icons.key),
-                        SizedBox(width: 20),
-                        Expanded(
-                            child: Text(
-                          "Logout",
-                          style: TextStyle(
-                            color: MyStyle().darkColor,
-                            fontSize: 15,
-                            fontFamily: 'Poppins',
-                          ),
-                        )),
-                        Icon(Icons.arrow_forward_ios_outlined)
-                      ],
-                    ),
-                  ),
-                ),
-              ])),
+              ),
+            ),
+          ])),
         ],
       ),
     );

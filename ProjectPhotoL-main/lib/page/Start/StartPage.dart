@@ -127,8 +127,8 @@ class _Start_pageState extends State<Start_page> {
       onPressed: () {
         //print('fuckkkkkkkkkkkkkkkkkkkk');
 
-        MaterialPageRoute materialPageRoute =
-            MaterialPageRoute(builder: (BuildContext context) => HowToUse2());
+        MaterialPageRoute materialPageRoute = MaterialPageRoute(
+            builder: (BuildContext context) => HowToUse2(pagehow: "startpage"));
         Navigator.of(this.context).push(materialPageRoute);
       },
     );

@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/page/Howto/HowtoList/howto1.dart';
+import 'package:project_photo_learn/page/PagesF/first.dart';
 import 'package:project_photo_learn/page/Start/StartPage.dart';
 
 class HowToUse2 extends StatefulWidget {
-  const HowToUse2({Key? key}) : super(key: key);
-
+  //const HowToUse2({Key? key}) : super(key: key);
+  String pagehow;
+  HowToUse2({required this.pagehow});
   @override
-  _HowtoWidgetState createState() => _HowtoWidgetState();
+  _HowtoWidgetState createState() => _HowtoWidgetState(pagehowto: pagehow);
 }
 
 class _HowtoWidgetState extends State<HowToUse2> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+  String pagehowto;
+  _HowtoWidgetState({required this.pagehowto});
+  dynamic Request_page = FirstState(page: 3);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +24,11 @@ class _HowtoWidgetState extends State<HowToUse2> {
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new),
           onPressed: () {
+            if (pagehowto == "startpage") {
+              Request_page = Start_page();
+            }
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => Start_page()));
+                context, MaterialPageRoute(builder: (context) => Request_page));
           },
         ),
         backgroundColor: Color.fromARGB(255, 0, 0, 0),

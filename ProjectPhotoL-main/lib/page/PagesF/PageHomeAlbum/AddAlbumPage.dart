@@ -29,7 +29,7 @@ class Add_Album_PageState extends State<Add_Album_Page> {
             ),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => FirstState()));
+                  MaterialPageRoute(builder: (context) => FirstState(page: 0)));
             },
           ),
           backgroundColor: MyStyle().whiteColor,

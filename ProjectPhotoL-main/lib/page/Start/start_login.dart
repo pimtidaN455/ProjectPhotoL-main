@@ -1,5 +1,3 @@
-//import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/Backend/Check_User.dart';
@@ -158,17 +156,24 @@ class _StartloginState extends State<Startlogin> {
         onPressed: () {
           print('--------------- Email and Password ---------------');
           bool validate = _fromKey.currentState!.validate();
+
           if (validate) {
             check_user checkuse = new check_user();
+            var login = checkuse.login(Email.text, Password.text, "000");
+            print(login);
+
             ////////////////////////////cheack/////////////////////////
-            if (checkuse.login(Email.text, Password.text, "000")) {
+            if (login == "Login success") {
               ////////////////////// เปลี่ยนสถานะ login //////////////////
               MaterialPageRoute materialPageRoute = MaterialPageRoute(
-                  builder: (BuildContext context) => FirstState());
+                  builder: (BuildContext context) => FirstState(page: 0));
               Navigator.of(this.context).push(materialPageRoute);
               print(Email.text);
               print(Password.text);
             } else {
+              /////////////////////////////////////////////////////////////////////////
+              //////////////////////////ทำ pop up บอก รหัสผิด //////////////////////////
+              ////////////////////////////////////////////////////////////////////////
               MaterialPageRoute materialPageRoute = MaterialPageRoute(
                   builder: (BuildContext context) => Startlogin());
               Navigator.of(this.context).push(materialPageRoute);
@@ -254,7 +259,8 @@ class _StartloginState extends State<Startlogin> {
             ),
             onPressed: () {
               MaterialPageRoute materialPageRoute = MaterialPageRoute(
-                  builder: (BuildContext context) => Resetpassword());
+                  builder: (BuildContext context) =>
+                      Resetpassword(pagere: "login"));
               Navigator.of(this.context).push(materialPageRoute);
             },
           )

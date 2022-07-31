@@ -1,17 +1,24 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/HomePage.dart';
 import 'package:project_photo_learn/page/PagesF/PagePerson/PersonPage2.dart';
 import 'package:project_photo_learn/page/PagesF/SearchPage.dart';
-import 'package:project_photo_learn/page/PagesF/Cloudpage.dart';
+import 'package:project_photo_learn/page/PagesF/PageClound/CloudPage.dart';
 
 class FirstState extends StatefulWidget {
-  const FirstState({Key? key}) : super(key: key);
+  //const FirstState({Key? key, required int count}) : super(key: key);
+  int page;
+  FirstState({required this.page});
+
   @override
-  _FirstState createState() => _FirstState();
+  _FirstState createState() => _FirstState(index: page);
 }
 
 class _FirstState extends State<FirstState> {
-  int index = 0;
+  int index;
+   _FirstState({required this.index});
+
   final Screen = [Homepage(), Searchpage(), Cloundpage(), Person_page1()];
 
   Widget build(BuildContext context) => Scaffold(
