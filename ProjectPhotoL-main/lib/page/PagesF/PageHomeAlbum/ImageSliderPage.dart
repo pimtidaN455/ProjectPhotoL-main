@@ -1,6 +1,9 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImagePage.dart';
+import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 
 class SlideImage extends StatelessWidget {
   @override
@@ -46,11 +49,19 @@ class Body extends StatefulWidget {
 
 class _Body extends State<Body> {
   //List<AllImage> imageListS = AllImages().getAllImages();
+  AllImages imgslide = new AllImages();
+  var img;
+  var lenght;
+
+  _Body() {
+    img = imgslide.getAllImages();
+    lenght = img.length;
+  }
 
   int currentIndex = 0;
   final PageController controller = PageController();
 
-  List<String> imagelist = [
+  /*List<String> imagelist = [
     "https://picsum.photos/id/240/200/300",
     "https://picsum.photos/id/241/200/300",
     "https://picsum.photos/id/242/200/300",
@@ -61,7 +72,7 @@ class _Body extends State<Body> {
     "https://picsum.photos/id/252/200/300",
     "https://picsum.photos/id/253/200/300",
     "https://picsum.photos/id/254/200/300",
-  ];
+  ];*/
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +87,7 @@ class _Body extends State<Body> {
               controller: controller,
               onPageChanged: (index) {
                 setState(() {
-                  currentIndex = index % imagelist.length;
+                  currentIndex = index % 4;
                 });
               },
               itemBuilder: (context, index) {
@@ -85,8 +96,8 @@ class _Body extends State<Body> {
                   child: SizedBox(
                     height: 300,
                     width: double.infinity,
-                    child: Image.network(
-                      imagelist[index % imagelist.length],
+                    child: Image.asset(
+                      img[index % img.length],
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -100,7 +111,7 @@ class _Body extends State<Body> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              for (var i = 0; i < imagelist.length; i++)
+              for (var i = 0; i < img.length; i++)
                 buildIndicator(currentIndex == i)
             ],
           ),

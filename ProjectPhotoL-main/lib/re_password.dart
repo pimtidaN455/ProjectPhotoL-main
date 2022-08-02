@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
+import 'package:project_photo_learn/page/PagesF/PagePerson/setting_page.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 import 'package:project_photo_learn/page/Start/start_login.dart';
 
@@ -15,7 +16,7 @@ class _ResetpasswordState extends State<Resetpassword> {
   String pagereset;
   _ResetpasswordState({required this.pagereset});
 
-  dynamic Request_page = FirstState(page: 3);
+  dynamic Request_page = setting_page();
 
   late double screen;
   TextEditingController Emailrepass = TextEditingController();
