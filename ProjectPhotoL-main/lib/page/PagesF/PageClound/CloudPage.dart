@@ -1,5 +1,6 @@
 //import 'dart:html';
 import 'package:flutter/material.dart';
+import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/PagesF/PageClound/ImageSliderPageClound.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/place.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
@@ -21,6 +22,27 @@ class Cloundpage extends StatelessWidget {
               fontFamily: 'Rajdhani',
             ),
           ),
+          actions: [
+            IconButton(
+              icon: Icon(
+                Icons.add,
+                color: MyStyle().blackColor,
+              ),
+              onPressed: () {},
+            ),
+            TextButton(
+                onPressed: () {},
+                child: Text(
+                  "Edit ",
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: MyStyle().blackColor,
+                    fontWeight: FontWeight.bold,
+                    //fontStyle: FontStyle.normal,
+                    fontFamily: 'Rajdhani',
+                  ),
+                ))
+          ],
           automaticallyImplyLeading: false,
         ),
         body: Allimages(nameAlbum: this.name),

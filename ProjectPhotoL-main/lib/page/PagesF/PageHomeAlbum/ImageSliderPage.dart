@@ -62,20 +62,21 @@ class _Body extends State<Body> {
   final PageController controller = PageController();
 
   List<String> imagelist = [
-    "images/picinalbum0-_1__1.jpg",
-    "images/picinalbum0-_2__1.jpg",
-    "images/picinalbum0-_3__1.jpg",
-    "images/picinalbum0-_4__1.jpg",
+    './images/Jujutsu-Kaisen-1.jpg',
+    './images/Jujutsu-Kaisen-2.jpg',
+    './images/Jujutsu-Kaisen-3.jpg',
+    './images/Jujutsu-Kaisen-4.jpg',
+    './images/plant-growing-ground.jpg',
   ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
         children: [
           SizedBox(
-            height: 300,
+            height: 500,
             width: double.infinity,
             child: PageView.builder(
               controller: controller,
@@ -86,13 +87,13 @@ class _Body extends State<Body> {
               },
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 5),
                   child: SizedBox(
-                    height: 300,
+                    height: 500,
                     width: double.infinity,
                     child: Image.asset(
                       imagelist[index % imagelist.length],
-                      fit: BoxFit.cover,
+                      fit: BoxFit.scaleDown,
                     ),
                   ),
                 );
@@ -100,10 +101,11 @@ class _Body extends State<Body> {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 100,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
             children: [
               for (var i = 0; i < img.length; i++)
                 buildIndicator(currentIndex == i)

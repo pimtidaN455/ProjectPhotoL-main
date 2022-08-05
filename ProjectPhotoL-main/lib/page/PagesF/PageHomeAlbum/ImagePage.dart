@@ -78,11 +78,6 @@ class _GridItem extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
         child: InkWell(
           child: GridTile(
-            /*footer: GridTileBar(
-              backgroundColor: Colors.black45,
-              title: Text(allimage.title),
-              subtitle: Text(allimage.subtitle),
-            ),*/
             child: Ink.image(
               image: AssetImage(allimage.image),
               fit: BoxFit.cover,
