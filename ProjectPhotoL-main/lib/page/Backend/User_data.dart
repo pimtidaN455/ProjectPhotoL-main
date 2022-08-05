@@ -60,8 +60,8 @@ class user_file {
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
     print(map_data);
     print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-    /* await File('./ProjectPhotoL-main/lib/Backend/datafile/client_data.json')
-        .writeAsString(user);*/
+    File('./ProjectPhotoL-main/lib/Backend/datafile/client_data.json')
+        .writeAsString(user);
     return "Write_Success";
   }
 }

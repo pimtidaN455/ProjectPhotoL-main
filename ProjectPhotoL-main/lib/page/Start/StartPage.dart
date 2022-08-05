@@ -89,7 +89,7 @@ class _Start_pageState extends State<Start_page> {
       children: <Widget>[
         HowtoButton(),
         SizedBox(
-          width: 10.0,
+          width: 20.0,
         ),
         StartButton(),
       ],
@@ -100,9 +100,9 @@ class _Start_pageState extends State<Start_page> {
     return RaisedButton(
       color: MyStyle().perpleColor,
       child: Text(
-        'Start',
+        'Login',
         style: TextStyle(
-          color: MyStyle().blackColor,
+          color: MyStyle().whiteColor,
           fontSize: 20,
         ),
       ),

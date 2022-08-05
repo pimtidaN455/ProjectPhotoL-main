@@ -40,37 +40,38 @@ class Allimages extends StatelessWidget {
       crossAxisSpacing: 8,
       padding: EdgeInsets.all(8),
       childAspectRatio: 1 / 1.2,
-      children: gridItemsC(nameAlbum),
+      //children: gridItemsC(nameAlbum),
+      children: gridItemsC(),
     );
   }
 }
 
-List<Widget> gridItemsC(nameAlbum) {
+List<Widget> gridItemsC() {
   AllImages alllll = new AllImages();
   print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
   print(alllll.getAllImagesClound().runtimeType);
   return AllImages()
       .getAllImagesClound()
-      .map<Widget>((allimage) => _GridItemC(allimage, nameAlbum))
+      //.map<Widget>((allimage) => _GridItemC(allimage, nameAlbum))
+      .map<Widget>((allimage) => _GridItemC(allimage))
       .toList();
 }
 
 class _GridItemC extends StatelessWidget {
-  var nameAlbum;
+  //var nameAlbum;
   final AllImage allimages;
 
-  _GridItemC(this.allimages, this.nameAlbum);
+  //_GridItemC(this.allimages, this.nameAlbum);
+  _GridItemC(this.allimages);
   @override
   Widget build(BuildContext context) {
-    print(nameAlbum);
-    print("oooooooooooooooooooooooooooooooooooooooooooooooooooo");
     return Card(
         clipBehavior: Clip.antiAlias,
         elevation: 10,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
         child: InkWell(
           child: GridTile(
-            child: Image.network(
+            child: Image.asset(
               allimages.image,
               fit: BoxFit.cover,
             ),
@@ -79,9 +80,9 @@ class _GridItemC extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => SlideImageC(
-                        namealbumC: nameAlbum.toString(), startImg: 2)));
-            print("ส่งชื่ออัลบั้มไปที่ SlideImage" + nameAlbum.toString());
+                    builder: (context) =>
+                        SlideImageC(namealbumC: "Cloud", startImg: 2)));
+            //print("ส่งชื่ออัลบั้มไปที่ SlideImage" + nameAlbum.toString());
           },
         ));
   }

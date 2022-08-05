@@ -22,12 +22,14 @@ class check_user {
         'Album_Create': "",
         'Login': true
       };
+
       userdata_file.write_user_file(data_json);
       //userdata_file.getdata_user_file();
     }
-    user_file userfile = new user_file();
-    print("kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
-    print(userfile.Login);
+    //user_file userfile = new user_file();
+    print(
+        " -------------------------- Login success --------------------------");
+    //print(userfile.Login);
     return message;
   }
 

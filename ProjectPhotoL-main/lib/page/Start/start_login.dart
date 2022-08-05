@@ -35,8 +35,8 @@ class _StartloginState extends State<Startlogin> {
           ),
           backgroundColor: MyStyle().blackColor,
         ),
-        body: Container(
-            alignment: Alignment.topCenter,
+        body: SingleChildScrollView(
+            //alignment: Alignment.topCenter,
             child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
                 child: Form(
@@ -128,7 +128,7 @@ class _StartloginState extends State<Startlogin> {
             focusedBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
         validator: (value) {
-          final passwordRegex = RegExp(r'[!@#$%^&*(),.?":{}|<>+-/]');
+          final passwordRegex = RegExp('[^A-Za-z0-9_]');
           if (value!.isEmpty) {
             return "Please enter Password.";
           }
@@ -160,7 +160,7 @@ class _StartloginState extends State<Startlogin> {
           if (validate) {
             check_user checkuse = new check_user();
             var login = checkuse.login(Email.text, Password.text, "000");
-            print(login);
+            print("Status loin is : " + login);
 
             ////////////////////////////cheack/////////////////////////
             if (login == "Login success") {

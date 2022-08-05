@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/HomePage.dart';
 import 'package:project_photo_learn/page/PagesF/PagePerson/PersonPage2.dart';
@@ -17,7 +15,7 @@ class FirstState extends StatefulWidget {
 
 class _FirstState extends State<FirstState> {
   int index;
-   _FirstState({required this.index});
+  _FirstState({required this.index});
 
   final Screen = [Homepage(), Searchpage(), Cloundpage(), Person_page1()];
 

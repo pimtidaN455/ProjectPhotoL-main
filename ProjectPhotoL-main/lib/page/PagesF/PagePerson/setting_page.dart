@@ -3,9 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/Backend/User_data.dart';
-import 'package:project_photo_learn/page/Howto/howtouse.dart';
+
 import 'package:project_photo_learn/page/PagesF/PagePerson/PersonPage2.dart';
-import 'package:project_photo_learn/page/PagesF/PagePerson/alrert_dialog.dart';
+import 'package:project_photo_learn/page/PagesF/first.dart';
+
 import 'package:project_photo_learn/re_password.dart';
 
 class setting_page extends StatefulWidget {
@@ -18,6 +19,7 @@ class _setting_page extends State<setting_page> {
   String title = 'AlertDialog';
   bool tappedYes = false;
   user_file user = new user_file();
+  dynamic Request_page = FirstState(page: 3);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class _setting_page extends State<setting_page> {
         ),
         onPressed: () {
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Person_page1()));
+              context, MaterialPageRoute(builder: (context) => (Request_page)));
         },
       ),
       backgroundColor: MyStyle().blackColor,
@@ -107,7 +109,7 @@ class _setting_page extends State<setting_page> {
                     SizedBox(width: 20),
                     Expanded(
                         child: Text(
-                      "Reset email or password",
+                      "Reset password",
                       style: TextStyle(
                         color: MyStyle().darkColor,
                         fontSize: 15,

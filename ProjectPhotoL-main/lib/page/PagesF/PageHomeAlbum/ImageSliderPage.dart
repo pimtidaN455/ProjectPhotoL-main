@@ -61,18 +61,12 @@ class _Body extends State<Body> {
   int currentIndex = 0;
   final PageController controller = PageController();
 
-  /*List<String> imagelist = [
-    "https://picsum.photos/id/240/200/300",
-    "https://picsum.photos/id/241/200/300",
-    "https://picsum.photos/id/242/200/300",
-    "https://picsum.photos/id/243/200/300",
-    "https://picsum.photos/id/244/200/300",
-    "https://picsum.photos/id/250/200/300",
-    "https://picsum.photos/id/251/200/300",
-    "https://picsum.photos/id/252/200/300",
-    "https://picsum.photos/id/253/200/300",
-    "https://picsum.photos/id/254/200/300",
-  ];*/
+  List<String> imagelist = [
+    "images/picinalbum0-_1__1.jpg",
+    "images/picinalbum0-_2__1.jpg",
+    "images/picinalbum0-_3__1.jpg",
+    "images/picinalbum0-_4__1.jpg",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +81,7 @@ class _Body extends State<Body> {
               controller: controller,
               onPageChanged: (index) {
                 setState(() {
-                  currentIndex = index % 4;
+                  currentIndex = index % imagelist.length;
                 });
               },
               itemBuilder: (context, index) {
@@ -97,7 +91,7 @@ class _Body extends State<Body> {
                     height: 300,
                     width: double.infinity,
                     child: Image.asset(
-                      img[index % img.length],
+                      imagelist[index % imagelist.length],
                       fit: BoxFit.cover,
                     ),
                   ),

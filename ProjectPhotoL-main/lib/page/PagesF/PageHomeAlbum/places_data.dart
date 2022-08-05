@@ -32,7 +32,7 @@ class AllImages {
 
   List<AllImage> getAllImagesClound() {
     return [
-      AllImage(image: "https://picsum.photos/id/240/200/300"),
+      /*AllImage(image: "https://picsum.photos/id/240/200/300"),
       AllImage(image: "https://picsum.photos/id/241/200/300"),
       AllImage(image: "https://picsum.photos/id/242/200/300"),
       AllImage(image: "https://picsum.photos/id/243/200/300"),
@@ -41,7 +41,11 @@ class AllImages {
       AllImage(image: "https://picsum.photos/id/251/200/300"),
       AllImage(image: "https://picsum.photos/id/252/200/300"),
       AllImage(image: "https://picsum.photos/id/253/200/300"),
-      AllImage(image: "https://picsum.photos/id/254/200/300"),
+      AllImage(image: "https://picsum.photos/id/254/200/300"),*/
+      AllImage(image: './images/picinalbum0-_1__1.jpg'),
+      AllImage(image: './images/picinalbum0-_2__1.jpg'),
+      AllImage(image: './images/picinalbum0-_3__1.jpg'),
+      AllImage(image: './images/picinalbum0-_4__1.jpg'),
     ];
   }
 }
