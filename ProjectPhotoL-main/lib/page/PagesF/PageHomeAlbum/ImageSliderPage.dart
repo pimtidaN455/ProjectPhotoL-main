@@ -3,64 +3,59 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImagePage.dart';
+import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/place.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 
 class SlideImage extends StatelessWidget {
   @override
-  String namealbum;
-  SlideImage({required this.namealbum});
+  String title;
+  int selectPic;
+  SlideImage({required this.title, required this.selectPic});
 
   Widget build(BuildContext context) {
-    print(this.namealbum);
+    print("selecpic ที่รับมาจาก Imageplace");
+    print(this.selectPic);
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(this.namealbum,
-              style: TextStyle(
-                color: MyStyle().blackColor,
-              )),
-          centerTitle: true,
-          backgroundColor: MyStyle().whiteColor,
-          automaticallyImplyLeading: true,
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios_new,
+        home: Scaffold(
+      appBar: AppBar(
+        title: Text(this.title,
+            style: TextStyle(
               color: MyStyle().blackColor,
-            ),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ShowImage(name: this.namealbum)));
-              print("ส่งชื่ออัลบั้มไปที่ ShowImage" + this.namealbum);
-            },
+            )),
+        centerTitle: true,
+        backgroundColor: MyStyle().whiteColor,
+        automaticallyImplyLeading: true,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            color: MyStyle().blackColor,
           ),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => ShowImage(name: this.title)));
+            print("ส่งชื่ออัลบั้มไปที่ ShowImage" + this.title);
+          },
         ),
-        body: Body(),
       ),
-    );
+      body: Body(selectPic: selectPic),
+    ));
   }
 }
 
 class Body extends StatefulWidget {
+  int selectPic;
+  Body({required this.selectPic});
   @override
-  State<Body> createState() => _Body();
+  State<Body> createState() => _Body(currentIndex: selectPic);
 }
 
 class _Body extends State<Body> {
-  //List<AllImage> imageListS = AllImages().getAllImages();
-  AllImages imgslide = new AllImages();
-  var img;
-  var lenght;
-
-  _Body() {
-    img = imgslide.getAllImages();
-    lenght = img.length;
-  }
-
-  int currentIndex = 0;
-  final PageController controller = PageController();
-
+  int currentIndex;
+  _Body({required this.currentIndex});
+  //int selectPic1 = 0;
+  PageController controller = PageController();
   List<String> imagelist = [
     './images/Jujutsu-Kaisen-1.jpg',
     './images/Jujutsu-Kaisen-2.jpg',
@@ -68,8 +63,11 @@ class _Body extends State<Body> {
     './images/Jujutsu-Kaisen-4.jpg',
     './images/plant-growing-ground.jpg',
   ];
+
   @override
   Widget build(BuildContext context) {
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++");
+    print(currentIndex);
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -80,11 +78,16 @@ class _Body extends State<Body> {
             width: double.infinity,
             child: PageView.builder(
               controller: controller,
+              //////////////////////////////////////////////
               onPageChanged: (index) {
+                print("index : ");
+                print(index);
                 setState(() {
+                  ////////////////////////////////////////////
                   currentIndex = index % imagelist.length;
                 });
               },
+              //////////////////////////////////////
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
@@ -92,7 +95,8 @@ class _Body extends State<Body> {
                     height: 500,
                     width: double.infinity,
                     child: Image.asset(
-                      imagelist[index % imagelist.length],
+                      ///////////////////////////////////////////////////////////////
+                      imagelist[currentIndex % imagelist.length],
                       fit: BoxFit.scaleDown,
                     ),
                   ),
@@ -107,7 +111,7 @@ class _Body extends State<Body> {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: [
-              for (var i = 0; i < img.length; i++)
+              for (var i = 0; i < imagelist.length; i++)
                 buildIndicator(currentIndex == i)
             ],
           ),
@@ -118,13 +122,21 @@ class _Body extends State<Body> {
               children: [
                 IconButton(
                   onPressed: () {
+                    print("ค่าเปลี่ยนนหน้า ก่อน ถอยหลัง = ");
+                    print(currentIndex);
                     controller.jumpToPage(currentIndex - 1);
+                    print("ค่าเปลี่ยนนหน้า หลัง ถอยหลัง = ");
+                    print(currentIndex);
                   },
                   icon: Icon(Icons.arrow_back),
                 ),
                 IconButton(
                   onPressed: () {
+                    print("ค่าเปลี่ยนนหน้า ก่อน เดินหน้า = ");
+                    print(currentIndex);
                     controller.jumpToPage(currentIndex + 1);
+                    print("ค่าเปลี่ยนนหน้า หลัง เดินหน้า = ");
+                    print(currentIndex);
                   },
                   icon: Icon(Icons.arrow_forward),
                 ),

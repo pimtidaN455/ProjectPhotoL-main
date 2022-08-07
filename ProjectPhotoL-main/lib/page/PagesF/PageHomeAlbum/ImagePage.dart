@@ -1,16 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
+import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/HomePage.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImageSliderPage.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/place.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 
-class ShowImage extends StatelessWidget {
-  @override
+class ShowImage extends StatefulWidget {
   var name;
-  ShowImage({this.name});
+  var selectbum;
+  ShowImage({this.name, this.selectbum});
+  @override
+  Allimages createState() => Allimages(name: name, selectbum: selectbum);
+}
 
-  Widget build(BuildContext context) => Scaffold(
+class Allimages extends State<ShowImage> {
+  int optionSelected = 0;
+  var name;
+  var selectbum; //อัลบั้มที่ผู้ใช้เลือก
+  Allimages({this.name, this.selectbum});
+  void checkOption(int index) {
+    setState(() {
+      optionSelected = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
         appBar: AppBar(
           leading: IconButton(
             icon: Icon(
@@ -35,62 +52,59 @@ class ShowImage extends StatelessWidget {
           ),
           automaticallyImplyLeading: false,
         ),
-        body: Allimages(nameAlbum: this.name),
-      );
-}
-
-class Allimages extends StatelessWidget {
-  var nameAlbum;
-  Allimages({this.nameAlbum});
-
-  @override
-  Widget build(BuildContext context) {
-    //print(nameAlbum.toString());
-    return GridView.extent(
-      maxCrossAxisExtent: 150,
-      mainAxisSpacing: 8,
-      crossAxisSpacing: 8,
-      padding: EdgeInsets.all(8),
-      childAspectRatio: 1 / 1.2,
-      children: gridItems(nameAlbum),
-    );
+        body: GridView.extent(
+          maxCrossAxisExtent: 200,
+          mainAxisSpacing: 8,
+          crossAxisSpacing: 8,
+          padding: EdgeInsets.all(8),
+          childAspectRatio: 1 / 1.2,
+          children: <Widget>[
+            for (int i = 0; i < getPic.length; i++)
+              _GridItem(
+                getPic[i]['Namebum'] as String,
+                img: getPic[i]['img'] as String,
+                onTap: () => checkOption(i),
+                selected: i == optionSelected,
+                selectPic: i,
+              )
+          ],
+        ));
   }
 }
 
-List<Widget> gridItems(nameAlbum) {
-  return AllImages()
-      .getAllImages()
-      .map<Widget>((allimage) => _GridItem(allimage, nameAlbum))
-      .toList();
-}
-
 class _GridItem extends StatelessWidget {
-  _GridItem(this.allimage, this.nameAlbum);
-  var nameAlbum;
-  final AllImage allimage;
+  const _GridItem(
+    this.title, {
+    Key? key,
+    required this.img,
+    required this.selectPic,
+    required this.onTap,
+    required this.selected,
+  }) : super(key: key);
+
+  final String title;
+  final String img;
+  final int selectPic;
+  final VoidCallback onTap;
+  final bool selected;
+
   @override
   Widget build(BuildContext context) {
-    print(nameAlbum);
-    print("oooooooooooooooooooooooooooooooooooooooooooooooooooo");
-    return Card(
-        clipBehavior: Clip.antiAlias,
-        elevation: 10,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-        child: InkWell(
-          child: GridTile(
-            child: Ink.image(
-              image: AssetImage(allimage.image),
-              fit: BoxFit.cover,
-            ),
-          ),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) =>
-                        SlideImage(namealbum: nameAlbum.toString())));
-            print("ส่งชื่ออัลบั้มไปที่ SlideImage" + nameAlbum.toString());
-          },
-        ));
+    return Ink.image(
+      fit: BoxFit.cover,
+      image: AssetImage(img),
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      SlideImage(title: title, selectPic: selectPic)));
+          print("เลือกรูปที่ : ");
+          print(selectPic);
+          print("///////////////////////////////////////////////////////");
+        },
+      ),
+    );
   }
 }

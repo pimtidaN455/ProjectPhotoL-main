@@ -5,9 +5,24 @@ import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/place.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImagePage.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
+  const Homepage({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context) => Scaffold(
+  AlbumScreenWidget createState() => AlbumScreenWidget();
+}
+
+class AlbumScreenWidget extends State<Homepage> {
+  int optionSelected = 0;
+  late int selectbum;
+  void checkOption(int index) {
+    setState(() {
+      optionSelected = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
         appBar: AppBar(
           backgroundColor: MyStyle().whiteColor,
           title: Text(
@@ -46,57 +61,94 @@ class Homepage extends StatelessWidget {
           ],
           automaticallyImplyLeading: false,
         ),
-        body: AlbumScreenWidget(),
-      );
-}
-
-class AlbumScreenWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return GridView.extent(
-      maxCrossAxisExtent: 200,
-      mainAxisSpacing: 8,
-      crossAxisSpacing: 8,
-      padding: EdgeInsets.all(8),
-      childAspectRatio: 1 / 1.2,
-      children: gridItems(),
-    );
+        body: GridView.extent(
+          maxCrossAxisExtent: 200,
+          mainAxisSpacing: 8,
+          crossAxisSpacing: 8,
+          padding: EdgeInsets.all(8),
+          childAspectRatio: 1 / 1.2,
+          children: <Widget>[
+            for (int i = 0; i < getBum.length; i++)
+              _GridItem(
+                getBum[i]['Namebum'] as String,
+                img: getBum[i]['img'] as String,
+                onTap: () => checkOption(i + 1),
+                selected: i + 1 == optionSelected,
+                selectbum: i + 1,
+              )
+          ],
+        ));
   }
 }
 
-List<Widget> gridItems() {
-  return Places().getPlaces().map<Widget>((place) => _GridItem(place)).toList();
-}
-
 class _GridItem extends StatelessWidget {
-  _GridItem(this.place);
+  const _GridItem(
+    this.title, {
+    Key? key,
+    required this.img,
+    required this.selectbum,
+    required this.onTap,
+    required this.selected,
+  }) : super(key: key);
 
-  final Place place;
+  final String title;
+  final String img;
+  final int selectbum;
+  final VoidCallback onTap;
+  final bool selected;
+
   @override
   Widget build(BuildContext context) {
-    return Card(
-        clipBehavior: Clip.antiAlias,
-        elevation: 10,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-        child: InkWell(
-          child: GridTile(
-            footer: GridTileBar(
-              backgroundColor: Colors.black45,
-              title: Text(place.title),
-              subtitle: Text(place.subtitle),
+    return Ink.image(
+      fit: BoxFit.cover,
+      image: AssetImage(img),
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) =>
+                      //ShowImage(name: title, selectbum: selectbum)
+                      ShowImage(name: title, selectbum: selectbum)));
+          print("เลือกอัลบั้มที่ : ");
+          print(selectbum);
+          print("///////////////////////////////////////////////////////");
+        },
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300),
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: selected ?? false ? Colors.red : Colors.transparent,
+                  width: selected ?? false ? 5 : 0,
+                ),
+              ),
             ),
-            child: Ink.image(
-              image: AssetImage(place.image),
-              fit: BoxFit.cover,
-            ),
+            padding: const EdgeInsets.all(8.0),
+            child: Row(children: <Widget>[
+              AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: selected ?? false
+                      ? Colors.blue.withOpacity(0.8)
+                      : Colors.black87,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Text(
+                  title ?? '',
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 16),
+                ),
+              ),
+            ]),
           ),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => ShowImage(name: place.title)));
-            print("ส่งชื่ออัลบั้มไปที่ showimage" + place.title);
-          },
-        ));
+        ),
+      ),
+    );
   }
 }

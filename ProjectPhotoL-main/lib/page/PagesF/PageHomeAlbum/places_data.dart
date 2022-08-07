@@ -2,6 +2,64 @@ import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/place.dart';
 import 'dart:io';
 import 'dart:convert';
 
+const List<Map<String, dynamic>> getBum = <Map<String, dynamic>>[
+  <String, dynamic>{
+    'Namebum': 'คณิต',
+    'img': './images/picinalbum0-_1__1.jpg',
+  },
+  <String, dynamic>{
+    'Namebum': 'สังคม',
+    'img': './images/picinalbum0-_2__1.jpg',
+  },
+  <String, dynamic>{
+    'Namebum': 'ภาษาไทย',
+    'img': './images/picinalbum0-_3__1.jpg',
+  },
+  <String, dynamic>{
+    'Namebum': 'ภาษาอังกฤษ',
+    'img': './images/picinalbum0-_4__1.jpg',
+  },
+];
+const List<Map<String, dynamic>> getPic = <Map<String, dynamic>>[
+  <String, dynamic>{
+    'Namebum': 'คณิต',
+    'img': './images/Jujutsu-Kaisen-1.jpg',
+  },
+  <String, dynamic>{
+    'Namebum': 'สังคม',
+    'img': './images/Jujutsu-Kaisen-2.jpg',
+  },
+  <String, dynamic>{
+    'Namebum': 'ภาษาไทย',
+    'img': './images/Jujutsu-Kaisen-3.jpg',
+  },
+  <String, dynamic>{
+    'Namebum': 'ภาษาอังกฤษ',
+    'img': './images/Jujutsu-Kaisen-4.jpg',
+  },
+  <String, dynamic>{
+    'Namebum': 'ภาษาอังกฤษ',
+    'img': './images/plant-growing-ground.jpg',
+  },
+];
+const List<Map<String, dynamic>> getPic2 = <Map<String, dynamic>>[
+  <String, dynamic>{
+    'img': './images/Jujutsu-Kaisen-1.jpg',
+  },
+  <String, dynamic>{
+    'img': './images/Jujutsu-Kaisen-2.jpg',
+  },
+  <String, dynamic>{
+    'img': './images/Jujutsu-Kaisen-3.jpg',
+  },
+  <String, dynamic>{
+    'img': './images/Jujutsu-Kaisen-4.jpg',
+  },
+  <String, dynamic>{
+    'img': './images/plant-growing-ground.jpg',
+  },
+];
+
 class Places {
   List<Place> getPlaces() {
     return [
