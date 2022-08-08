@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/HomePage.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImageSliderPage.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/place.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 
+// ignore: must_be_immutable
 class ShowImage extends StatefulWidget {
   var name;
   var selectbum;

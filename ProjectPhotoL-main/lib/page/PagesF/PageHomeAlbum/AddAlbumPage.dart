@@ -13,7 +13,7 @@ class Add_Album_PageState extends State<Add_Album_Page> {
 
   TextEditingController Add_Name_SubJ = TextEditingController();
   TextEditingController Add_Keyword_SubJ = TextEditingController();
-  bool _isObscure = true;
+  //bool _isObscure = true;
   //สร้างตัวแปร fromKey
   final _fromKey = GlobalKey<FormState>();
 

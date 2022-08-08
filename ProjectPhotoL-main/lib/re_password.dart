@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
+import 'package:project_photo_learn/page/Backend/Use_Api.dart';
 import 'package:project_photo_learn/page/PagesF/PagePerson/setting_page.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 import 'package:project_photo_learn/page/Start/start_login.dart';
@@ -108,11 +109,25 @@ class _ResetpasswordState extends State<Resetpassword> {
       child: ElevatedButton(
         onPressed: () {
           print('--------------- Email ---------------');
+
           bool validate = _fromKey.currentState!.validate();
+
           if (validate) {
-            MaterialPageRoute materialPageRoute = MaterialPageRoute(
-                builder: (BuildContext context) => Startlogin());
-            Navigator.of(this.context).push(materialPageRoute);
+            use_API APi_use = new use_API();
+            var APIre = APi_use.Reset_password(Emailrepass.text);
+            if (pagereset == "login") {
+              Request_page = Startlogin();
+            }
+
+            if (APIre['message'] == "Success") {
+              MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                  builder: (BuildContext context) => Request_page);
+              Navigator.of(this.context).push(materialPageRoute);
+            } else {
+              MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                  builder: (BuildContext context) => Request_page);
+              Navigator.of(this.context).push(materialPageRoute);
+            }
             print(Emailrepass.text);
           }
         },

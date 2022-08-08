@@ -5,8 +5,8 @@ import 'package:project_photo_learn/page/PagesF/PageClound/ImageSliderPageClound
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/place.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 
+// ignore: must_be_immutable
 class Cloundpage extends StatelessWidget {
-  @override
   var name;
   Cloundpage({this.name});
   Widget build(BuildContext context) => Scaffold(
@@ -49,6 +49,7 @@ class Cloundpage extends StatelessWidget {
       );
 }
 
+// ignore: must_be_immutable
 class Allimages extends StatelessWidget {
   var nameAlbum;
   Allimages({this.nameAlbum});

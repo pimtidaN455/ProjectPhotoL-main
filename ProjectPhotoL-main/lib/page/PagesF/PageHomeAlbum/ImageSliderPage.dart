@@ -1,13 +1,9 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImagePage.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/place.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 
+// ignore: must_be_immutable
 class SlideImage extends StatelessWidget {
-  @override
   String title;
   int selectPic;
   SlideImage({required this.title, required this.selectPic});
@@ -44,6 +40,7 @@ class SlideImage extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class Body extends StatefulWidget {
   int selectPic;
   Body({required this.selectPic});
@@ -57,11 +54,16 @@ class _Body extends State<Body> {
   //int selectPic1 = 0;
   PageController controller = PageController();
   List<String> imagelist = [
-    './images/Jujutsu-Kaisen-1.jpg',
-    './images/Jujutsu-Kaisen-2.jpg',
-    './images/Jujutsu-Kaisen-3.jpg',
-    './images/Jujutsu-Kaisen-4.jpg',
-    './images/plant-growing-ground.jpg',
+    './images/sangcom1.png',
+    './images/sangcom2.png',
+    './images/sangcom3.jpg',
+    './images/sangcom4.jpg',
+    './images/sangcom5.jpg',
+    './images/sangcom6.png',
+    './images/sangcom7.png',
+    './images/sangcom8.png',
+    './images/sangcom9.png',
+    './images/sangcom10.png'
   ];
 
   @override

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
-import 'package:project_photo_learn/page/PagesF/PageClound/CloudPage.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImagePage.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 
+// ignore: must_be_immutable
 class SlideImageC extends StatelessWidget {
-  @override
   int startImg;
   String namealbumC;
 
@@ -45,6 +43,7 @@ class SlideImageC extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class Body extends StatefulWidget {
   int startImg;
   Body({required this.startImg});
@@ -59,10 +58,16 @@ class _Body extends State<Body> {
   int currentIndex = 0;
   final PageController controller = PageController();
   List<String> imagelistC = [
-    './images/picinalbum0-_1__1.jpg',
-    './images/picinalbum0-_2__1.jpg',
-    './images/picinalbum0-_3__1.jpg',
-    './images/picinalbum0-_4__1.jpg',
+    './images/sangcom1.png',
+    './images/sangcom2.png',
+    './images/sangcom3.jpg',
+    './images/sangcom4.jpg',
+    './images/sangcom5.jpg',
+    './images/sangcom6.png',
+    './images/sangcom7.png',
+    './images/sangcom8.png',
+    './images/sangcom9.png',
+    './images/sangcom10.png'
   ];
 
   @override

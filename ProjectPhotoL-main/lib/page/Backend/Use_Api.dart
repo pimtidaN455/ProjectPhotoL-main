@@ -1,37 +1,126 @@
+import 'dart:convert';
+import 'dart:async';
 import 'package:http/http.dart' as http;
 
 class use_API {
-  var path = "/";
+  var path = "https://127.0.0.1:8000/";
 
   use_API() {}
 
-  Sign_up(email, password, firstname, lastname) {
-    var path_API = path + "signupuser/";
-    var data = {
-      'email': email,
-      'password': password,
-      'firstname': firstname,
-      'lastname': lastname
-    };
-    return http.post(Uri.parse(path_API), body: data);
+  Sign_up(email, password, firstname, lastname) async {
+    final http.Response response = await http.post(
+      Uri.parse("http://127.0.0.1:8000/signupuser/"),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'email': email,
+        'password': password,
+        'firstname': firstname,
+        'lastname': lastname
+      }),
+    );
+    print("KKKKKKKKKK");
+    print(response.statusCode);
+    print("DDDDDDDDDDD");
+
+    if (response.statusCode == 200) {
+      // If the server did return a 201 CREATED response,
+      // then parse the JSON.
+      print("DDDDDDDDDDDDDDDDDDDDDDDDDWSSSSSSSSSSSSs");
+      print(jsonDecode(response.body));
+      return (jsonDecode(response.body));
+    } else {
+      // If the server did not return a 201 CREATED response,
+      // then throw an exception.
+      throw Exception('Failed to create album.');
+    }
   }
 
-  Login(email, password, id_device) {
-    var path_API = path + "loginN/";
-    var data = {'email': email, 'password': password, 'id_device': id_device};
-    return http.post(Uri.parse(path_API), body: data);
+  Login(email, password, id_device) async {
+    print("UUUUUUUUUUUUUUUUUUUUU");
+    final http.Response response = await http.post(
+      Uri.parse("http://127.0.0.1:8000/loginN/"),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'email': email,
+        'password': password,
+        'id_device': id_device,
+      }),
+    );
+    print("KKKKKKKKKK");
+    print(response.statusCode);
+    print("DDDDDDDDDDD");
+
+    if (response.statusCode == 200) {
+      // If the server did return a 201 CREATED response,
+      // then parse the JSON.
+      print("DDDDDDDDDDDDDDDDDDDDDDDDDWSSSSSSSSSSSSs");
+      print(jsonDecode(response.body));
+      return (jsonDecode(response.body));
+    } else {
+      // If the server did not return a 201 CREATED response,
+      // then throw an exception.
+      throw Exception('Failed to create album.');
+    }
+
+    //audrapunzel@gmail.com
   }
 
-  Logout(tokenID) {
-    var path_API = path + "logout/";
-    var data = {'tokenID': tokenID};
-    return http.post(Uri.parse(path_API), body: data);
+  Logout(tokenID) async {
+    final http.Response response = await http.post(
+      Uri.parse("http://127.0.0.1:8000/logout/"),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'tokenID': await tokenID,
+      }),
+    );
+    print("KKKKKKKKKK");
+    print(response.statusCode);
+    print("DDDDDDDDDDD");
+
+    if (response.statusCode == 200) {
+      // If the server did return a 201 CREATED response,
+      // then parse the JSON.
+      print("DDDDDDDDDDDDDDDDDDDDDDDDDWSSSSSSSSSSSSs");
+      print(jsonDecode(response.body));
+      return (jsonDecode(response.body));
+    } else {
+      // If the server did not return a 201 CREATED response,
+      // then throw an exception.
+      throw Exception('Failed to create album.');
+    }
   }
 
-  Reset_password(email) {
-    var path_API = path + "resetpassword/";
-    var data = {'email': email};
-    return http.post(Uri.parse(path_API), body: data);
+  Reset_password(email) async {
+    final http.Response response = await http.post(
+      Uri.parse("http://127.0.0.1:8000/logout/"),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, String>{
+        'email': await email,
+      }),
+    );
+    print("KKKKKKKKKK");
+    print(response.statusCode);
+    print("DDDDDDDDDDD");
+
+    if (response.statusCode == 200) {
+      // If the server did return a 201 CREATED response,
+      // then parse the JSON.
+      print("DDDDDDDDDDDDDDDDDDDDDDDDDWSSSSSSSSSSSSs");
+      print(jsonDecode(response.body));
+      return (jsonDecode(response.body));
+    } else {
+      // If the server did not return a 201 CREATED response,
+      // then throw an exception.
+      throw Exception('Failed to create album.');
+    }
   }
 
   getdata_from_Server(tokenID) {

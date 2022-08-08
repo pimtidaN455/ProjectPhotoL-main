@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
+import 'package:project_photo_learn/page/Backend/Check_User.dart';
 //import 'package:project_photo_learn/main.dart';
 import 'package:project_photo_learn/page/Start/start_login.dart';
 
@@ -73,10 +74,26 @@ class _StartRegisterState extends State<Start_Register> {
       width: screen * 0.75,
       child: ElevatedButton(
         child: Text('Next'),
-        onPressed: () {
+        onPressed: () async {
           print('--------------- Email and Password ---------------');
           bool validate = _fromKey.currentState!.validate();
           if (validate) {
+            check_user user_check = await new check_user();
+            var signup = await user_check.signup(EmailRe.text, PasswordRe.text,
+                FirstNameRe.text, LastNameRe.text);
+
+            if (await signup['message'] == "Signup Finishes") {
+              ///////pop up บอกกรุณายืนยัน Email///
+              MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                  builder: (BuildContext context) => Startlogin());
+              Navigator.of(this.context).push(materialPageRoute);
+            } else {
+              print(signup['message']);
+              MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                  builder: (BuildContext context) => Start_Register());
+              Navigator.of(this.context).push(materialPageRoute);
+            }
+
             print(FirstNameRe.text);
             print(LastNameRe.text);
             print(EmailRe.text);

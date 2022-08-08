@@ -3,6 +3,7 @@ import 'package:project_photo_learn/page/Howto/HowtoList/howto1.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 import 'package:project_photo_learn/page/Start/StartPage.dart';
 
+// ignore: must_be_immutable
 class HowToUse2 extends StatefulWidget {
   //const HowToUse2({Key? key}) : super(key: key);
   String pagehow;

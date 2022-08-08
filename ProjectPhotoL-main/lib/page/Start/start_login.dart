@@ -5,6 +5,7 @@ import 'package:project_photo_learn/page/Start/StartPage.dart';
 import 'package:project_photo_learn/page/Start/start_register.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 import 'package:project_photo_learn/re_password.dart';
+import 'dart:async';
 
 class Startlogin extends StatefulWidget {
   const Startlogin({Key? key}) : super(key: key);
@@ -153,17 +154,17 @@ class _StartloginState extends State<Startlogin> {
       margin: EdgeInsets.only(top: 16),
       width: screen * 0.75,
       child: ElevatedButton(
-        onPressed: () {
+        onPressed: () async {
           print('--------------- Email and Password ---------------');
           bool validate = _fromKey.currentState!.validate();
 
           if (validate) {
             check_user checkuse = new check_user();
-            var login = checkuse.login(Email.text, Password.text, "000");
-            print("Status loin is : " + login);
+            var login = await checkuse.login(Email.text, Password.text);
+            print("Status loin is : " + await login);
 
             ////////////////////////////cheack/////////////////////////
-            if (login == "Login success") {
+            if (await login == "Login success") {
               ////////////////////// เปลี่ยนสถานะ login //////////////////
               MaterialPageRoute materialPageRoute = MaterialPageRoute(
                   builder: (BuildContext context) => FirstState(page: 0));

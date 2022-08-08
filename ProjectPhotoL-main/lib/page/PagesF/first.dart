@@ -4,6 +4,7 @@ import 'package:project_photo_learn/page/PagesF/PagePerson/PersonPage2.dart';
 import 'package:project_photo_learn/page/PagesF/SearchPage.dart';
 import 'package:project_photo_learn/page/PagesF/PageClound/CloudPage.dart';
 
+// ignore: must_be_immutable
 class FirstState extends StatefulWidget {
   //const FirstState({Key? key, required int count}) : super(key: key);
   int page;

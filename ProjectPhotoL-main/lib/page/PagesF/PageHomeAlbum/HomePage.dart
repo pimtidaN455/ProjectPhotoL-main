@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/AddAlbumPage.dart';
-import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/place.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImagePage.dart';
 
@@ -118,27 +117,25 @@ class _GridItem extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 300),
-            decoration: BoxDecoration(
+            /*decoration: BoxDecoration(
               border: Border(
                 bottom: BorderSide(
                   color: selected ?? false ? Colors.red : Colors.transparent,
                   width: selected ?? false ? 5 : 0,
                 ),
               ),
-            ),
+            ),*/
             padding: const EdgeInsets.all(8.0),
             child: Row(children: <Widget>[
               AnimatedContainer(
                 duration: const Duration(milliseconds: 300),
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: selected ?? false
-                      ? Colors.blue.withOpacity(0.8)
-                      : Colors.black87,
+                  color: Colors.black87,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
-                  title ?? '',
+                  title,
                   style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.white,

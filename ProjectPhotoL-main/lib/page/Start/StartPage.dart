@@ -45,7 +45,7 @@ class _Start_pageState extends State<Start_page> {
                     ),
                   ),
                   Text(
-                    'PHOTO\nLEARN',
+                    'PICCLASSO',
                     textAlign: TextAlign.start,
                     style: TextStyle(
                       color: MyStyle().blackColor,

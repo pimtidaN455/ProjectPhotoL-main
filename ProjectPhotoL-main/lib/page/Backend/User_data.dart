@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:convert';
+import 'dart:async';
 
 class user_file {
   var Albums_Create;
@@ -8,10 +9,13 @@ class user_file {
   var Firstname;
   var Lastname;
   var IDuser;
+  var Password;
   var filepath_W = File('./lib/page/Backend/datafile/client_data.json');
 
   user_file() {
     getdata_user_file();
+    print(IDuser);
+    print(Email);
   }
 
   getdata_user_file() {
@@ -21,13 +25,13 @@ class user_file {
     Email = data_json['Email'];
     Firstname = data_json['Firstname'];
     Lastname = data_json['Lastname'];
-    IDuser = data_json['IDuser'];
+    IDuser = data_json['IDUser'];
     Albums_Create = data_json['Albums_Create'];
     Login = data_json['Login'];
+    Password = data_json['Password'];
     print(Email);
     print(Login);
-    print(data_json);
-
+    print(IDuser);
     return data_json;
     /*
     print("GGGGasdasdasddsadasd");

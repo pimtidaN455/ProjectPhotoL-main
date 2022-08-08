@@ -75,19 +75,51 @@ flutter:
   assets:
    - images/logo2.png
    - images/Profile.jpg
-   - images/picinalbum0-_1__1.jpg
-   - images/picinalbum0-_2__1.jpg
-   - images/picinalbum0-_3__1.jpg
-   - images/picinalbum0-_4__1.jpg
-   - images/Jujutsu-Kaisen-1.jpg
-   - images/Jujutsu-Kaisen-2.jpg
-   - images/Jujutsu-Kaisen-3.jpg
-   - images/Jujutsu-Kaisen-4.jpg
-   - images/Jujutsu-Kaisen-5.jpg
-   - images/Jujutsu-Kaisen-6.jpg
-   - images/Jujutsu-Kaisen-7.jpg
-   - images/Jujutsu-Kaisen-8.jpg
-   - images/plant-growing-ground.jpg
+   - images/cal1.jpg
+   - images/cal2.jpg
+   - images/cal3.jpg
+   - images/sangcom1.png
+   - images/sangcom2.png
+   - images/sangcom3.jpg
+   - images/sangcom4.jpg
+   - images/sangcom5.jpg
+   - images/sangcom6.png
+   - images/sangcom7.png
+   - images/sangcom8.png
+   - images/sangcom9.png
+   - images/sangcom10.png
+   - images/suk1.jpg
+   - images/suk2.jpg
+   - images/suk3.jpg
+   - images/suk4.jpg
+   - images/thai1.jpg
+   - images/thai2.jpg
+   - images/thai3.jpg
+   - images/thai4.jpg
+   - images/thai5.jpg
+   - images/thai6.jpg
+   - images/thai7.jpg
+   - images/wit1.jpg
+   - images/wit2.jpg
+   - images/wit3.jpg
+   - images/wit4.jpg
+   - images/wit5.jpg
+   - images/wit6.jpg
+   - images/wit7.png
+   - images/wit8.jpg
+#   - images/picinalbum0-_1__1.jpg
+#   - images/picinalbum0-_2__1.jpg
+#   - images/picinalbum0-_3__1.jpg
+#   - images/picinalbum0-_4__1.jpg
+#   - images/Jujutsu-Kaisen-1.jpg
+#   - images/Jujutsu-Kaisen-2.jpg
+#   - images/Jujutsu-Kaisen-3.jpg
+#   - images/Jujutsu-Kaisen-4.jpg
+#   - images/Jujutsu-Kaisen-5.jpg
+#   - images/Jujutsu-Kaisen-6.jpg
+#   - images/Jujutsu-Kaisen-7.jpg
+#   - images/Jujutsu-Kaisen-8.jpg
+#   - images/plant-growing-ground.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
