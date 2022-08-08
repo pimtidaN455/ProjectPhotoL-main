@@ -65,6 +65,7 @@ class Allimages extends State<ShowImage> {
                 onTap: () => checkOption(i),
                 selected: i == optionSelected,
                 selectPic: i,
+                name: name,
               )
           ],
         ));
@@ -79,6 +80,7 @@ class _GridItem extends StatelessWidget {
     required this.selectPic,
     required this.onTap,
     required this.selected,
+    required this.name,
   }) : super(key: key);
 
   final String title;
@@ -86,6 +88,7 @@ class _GridItem extends StatelessWidget {
   final int selectPic;
   final VoidCallback onTap;
   final bool selected;
+  final String name;
 
   @override
   Widget build(BuildContext context) {
@@ -98,7 +101,7 @@ class _GridItem extends StatelessWidget {
               context,
               MaterialPageRoute(
                   builder: (context) =>
-                      SlideImage(title: title, selectPic: selectPic)));
+                      SlideImage(title: name, selectPic: selectPic)));
           print("เลือกรูปที่ : ");
           print(selectPic);
           print("///////////////////////////////////////////////////////");

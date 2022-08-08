@@ -20,43 +20,43 @@ const List<Map<String, dynamic>> getBum = <Map<String, dynamic>>[
 ];
 const List<Map<String, dynamic>> getPic = <Map<String, dynamic>>[
   <String, dynamic>{
-    'Namebum': ' ',
+    'Namebum': 'สังคม',
     'img': './images/sangcom1.png',
   },
   <String, dynamic>{
-    'Namebum': ' ',
+    'Namebum': 'สังคม',
     'img': './images/sangcom2.png',
   },
   <String, dynamic>{
-    'Namebum': ' ',
+    'Namebum': 'สังคม',
     'img': './images/sangcom3.jpg',
   },
   <String, dynamic>{
-    'Namebum': ' ',
+    'Namebum': 'สังคม',
     'img': './images/sangcom4.jpg',
   },
   <String, dynamic>{
-    'Namebum': ' ',
+    'Namebum': 'สังคม',
     'img': './images/sangcom5.jpg',
   },
   <String, dynamic>{
-    'Namebum': ' ',
+    'Namebum': 'สังคม',
     'img': './images/sangcom6.png',
   },
   <String, dynamic>{
-    'Namebum': ' ',
+    'Namebum': 'สังคม',
     'img': './images/sangcom7.png',
   },
   <String, dynamic>{
-    'Namebum': ' ',
+    'Namebum': 'สังคม',
     'img': './images/sangcom8.png',
   },
   <String, dynamic>{
-    'Namebum': ' ',
+    'Namebum': 'สังคม',
     'img': './images/sangcom9.png',
   },
   <String, dynamic>{
-    'Namebum': ' ',
+    'Namebum': 'สังคม',
     'img': './images/sangcom10.png',
   },
 ];
