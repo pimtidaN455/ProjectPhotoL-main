@@ -65,6 +65,7 @@ class Add_Album_PageState extends State<Add_Album_Page> {
                         ),
                       ),
                       AddKeywordSubJ(),
+                      buttonaddbum()
                     ],
                   ),
                 ))));
@@ -90,15 +91,14 @@ class Add_Album_PageState extends State<Add_Album_Page> {
             focusedBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
         validator: (value) {
-          final emailRegex = RegExp(
-              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+          final Add_Name_SubJ = RegExp(r"^[a-zA-Zก-๏\s]");
           if (value!.isEmpty) {
-            return "Please enter Email";
+            return "Please enter name of subject";
           }
-          if (emailRegex.hasMatch(value)) {
+          if (Add_Name_SubJ.hasMatch(value)) {
             return null;
           } else
-            return "Please enter a valid email.";
+            return "Please enter a-z A-Z 0-9 ก-ฮ ";
         },
       ),
     );
@@ -112,10 +112,8 @@ class Add_Album_PageState extends State<Add_Album_Page> {
         controller: Add_Keyword_SubJ,
         decoration: InputDecoration(
             suffixIcon: IconButton(
-              onPressed: () {
-                Add_Name_SubJ.clear();
-              },
-              icon: const Icon(Icons.clear),
+              onPressed: () {},
+              icon: const Icon(Icons.add),
             ),
             labelText: 'Add keyword',
             //prefixIcon: Icon(Icons.email_outlined),
@@ -124,16 +122,40 @@ class Add_Album_PageState extends State<Add_Album_Page> {
             focusedBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
         validator: (value) {
-          final emailRegex = RegExp(
-              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+          final Add_Keyword_SubJ = RegExp(r"^[a-zA-Zก-๏\s]");
           if (value!.isEmpty) {
-            return "Please enter Email";
+            return "Please enter keyword";
           }
-          if (emailRegex.hasMatch(value)) {
+          if (Add_Keyword_SubJ.hasMatch(value)) {
             return null;
           } else
-            return "Please enter a valid email.";
+            return "Please enter a-z A-Z 0-9 ก-ฮ";
         },
+      ),
+    );
+  }
+
+  Container buttonaddbum() {
+    return Container(
+      margin: EdgeInsets.only(top: 16),
+      width: screen * 0.75,
+      child: ElevatedButton(
+        child: Text('Add Album'),
+        onPressed: () async {
+          print('--------------- Add Album ---------------');
+          bool validate = _fromKey.currentState!.validate();
+          if (validate) {
+            MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                builder: (BuildContext context) => Add_Album_Page());
+            Navigator.of(this.context).push(materialPageRoute);
+          }
+          print(Add_Name_SubJ.text);
+          print(Add_Keyword_SubJ.text);
+        },
+        style: ElevatedButton.styleFrom(
+            primary: MyStyle().blackColor,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10))),
       ),
     );
   }

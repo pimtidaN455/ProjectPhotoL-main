@@ -50,7 +50,7 @@ class _StartRegisterState extends State<Start_Register> {
                       Text(
                         'Create Account',
                         style: TextStyle(
-                          fontSize: 50,
+                          fontSize: 40,
                           color: Color.fromARGB(255, 0, 0, 0),
                           fontWeight: FontWeight.bold,
                           //fontStyle: FontStyle.normal,
@@ -60,6 +60,16 @@ class _StartRegisterState extends State<Start_Register> {
                       FirstName(),
                       LastName(),
                       Emailre(),
+                      Text(
+                        "\n Please enter a password 6-25 characters.",
+                        style: TextStyle(
+                          fontSize: 17,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontWeight: FontWeight.bold,
+                          //fontStyle: FontStyle.normal,
+                          fontFamily: 'Rajdhani',
+                        ),
+                      ),
                       PassWordre(),
                       conFP(),
                       NextToHome(),
@@ -220,7 +230,9 @@ class _StartRegisterState extends State<Start_Register> {
         //maxLength: 25,
         obscureText: _isObscure,
         decoration: InputDecoration(
-            labelText: 'Password',
+            hintText: ("Password"),
+            labelText: ('Password'),
+            //labelText: ('should be more than 6 charecters.'),
             prefixIcon: Icon(Icons.password),
             suffixIcon: IconButton(
                 icon:
@@ -237,7 +249,7 @@ class _StartRegisterState extends State<Start_Register> {
         validator: (value) {
           final passwordRegex = RegExp('[^A-Za-z0-9_]');
           if (value!.isEmpty) {
-            return "Please enter Password.";
+            return "Please enter Password";
           }
           if (passwordRegex.hasMatch(value)) {
             return "Please enter a valid password.";
@@ -263,7 +275,9 @@ class _StartRegisterState extends State<Start_Register> {
         //maxLength: 25,
         obscureText: _isObscure,
         decoration: InputDecoration(
-            labelText: 'Confirm password',
+            //hintText: ("Confirm Password"),
+            labelText: ("Confirm Password"),
+            //labelText: ('Password should be more than 6 charecters.'),
             prefixIcon: Icon(Icons.password),
             suffixIcon: IconButton(
                 icon:
