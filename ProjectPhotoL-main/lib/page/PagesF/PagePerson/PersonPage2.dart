@@ -9,15 +9,18 @@ import 'package:project_photo_learn/page/PagesF/PagePerson/setting_page.dart';
 import 'package:project_photo_learn/re_password.dart';
 
 class Person_page1 extends StatefulWidget {
-  const Person_page1({Key? key}) : super(key: key);
+  var user;
+  Person_page1({required this.user});
   @override
-  _Start_pageState createState() => _Start_pageState();
+  _Start_pageState createState() => _Start_pageState(user: user);
 }
 
 class _Start_pageState extends State<Person_page1> {
+  var user;
+  _Start_pageState({required this.user});
+
   String title = 'AlertDialog';
   bool tappedYes = false;
-  user_file user = new user_file();
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +72,8 @@ class _Start_pageState extends State<Person_page1> {
                   height: 5,
                 ),
                 Text(
-                  user.Firstname + ' ' + user.Lastname,
+                  "pimtida promaut",
+                  //user.Firstname + ' ' + user.Lastname,
                   style: TextStyle(
                     color: MyStyle().whiteColor,
                     fontSize: 20,
@@ -80,7 +84,8 @@ class _Start_pageState extends State<Person_page1> {
                   height: 10,
                 ),
                 Text(
-                  user.Email,
+                  "Noey.caramel@gmail.com",
+                  //user.Email,
                   style: TextStyle(
                     color: MyStyle().whiteColor,
                     fontSize: 15,
@@ -134,7 +139,8 @@ class _Start_pageState extends State<Person_page1> {
                     color: MyStyle().grayColor,
                     onPressed: () {
                       MaterialPageRoute materialPageRoute = MaterialPageRoute(
-                          builder: (BuildContext context) => setting_page());
+                          builder: (BuildContext context) =>
+                              setting_page(user: user));
                       Navigator.of(this.context).push(materialPageRoute);
                     },
                     child: Row(

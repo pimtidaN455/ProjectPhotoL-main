@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 
+import '../../Backend/User_data.dart';
+
 class Add_Album_Page extends StatefulWidget {
   const Add_Album_Page({Key? key}) : super(key: key);
   @override
@@ -27,9 +29,16 @@ class Add_Album_PageState extends State<Add_Album_Page> {
               Icons.arrow_back_ios_new,
               color: Colors.black,
             ),
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => FirstState(page: 0)));
+            onPressed: () async {
+              user_file user0 = new user_file();
+              var user = await user0;
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => FirstState(
+                            page: 0,
+                            user: user,
+                          )));
             },
           ),
           backgroundColor: MyStyle().whiteColor,

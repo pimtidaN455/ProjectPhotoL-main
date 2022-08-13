@@ -1,27 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
-import 'package:project_photo_learn/page/Backend/Use_Api.dart';
 import 'package:project_photo_learn/page/PagesF/PagePerson/setting_page.dart';
 
-import 'package:project_photo_learn/page/Start/start_login.dart';
-
-class Resetpassword extends StatefulWidget {
-  //const Resetpassword({Key? key}) : super(key: key);
-  String pagere;
-  var user;
-  Resetpassword({required this.pagere, required this.user});
+class ResetName extends StatefulWidget {
+  String nameuser;
+  ResetName({required this.nameuser});
   @override
-  _ResetpasswordState createState() =>
-      _ResetpasswordState(pagereset: pagere, user: user);
+  _ResetNameState createState() => _ResetNameState(nameuser: nameuser);
 }
 
-class _ResetpasswordState extends State<Resetpassword> {
-  String pagereset;
-  var user;
-  _ResetpasswordState({required this.pagereset, required this.user});
-
+class _ResetNameState extends State<ResetName> {
+  String nameuser;
+  _ResetNameState({required this.nameuser});
   late double screen;
-  TextEditingController Emailrepass = TextEditingController();
+  TextEditingController Namereset = TextEditingController();
+  TextEditingController LastNamereset = TextEditingController();
   bool _isObscure = true;
   final _fromKey = GlobalKey<FormState>();
 
@@ -33,13 +26,12 @@ class _ResetpasswordState extends State<Resetpassword> {
           leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
             onPressed: () {
-              dynamic Request_page = setting_page(user: user);
-
-              if (pagereset == "login") {
-                Request_page = Startlogin();
-              }
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Request_page));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => setting_page(
+                            user: nameuser,
+                          )));
             },
           ),
           backgroundColor: MyStyle().blackColor,
@@ -54,34 +46,35 @@ class _ResetpasswordState extends State<Resetpassword> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        'Reset password',
+                        'Reset Name',
                         style: TextStyle(
-                          fontSize: 50,
+                          fontSize: 30,
                           color: MyStyle().blackColor,
                           fontWeight: FontWeight.bold,
                           //fontStyle: FontStyle.normal,
                           fontFamily: 'Rajdhani',
                         ),
                       ),
-                      Emailre(),
-                      NextToLogin(),
+                      FirstNameRe(),
+                      LastNameRe(),
+                      NextToReName(),
                     ],
                   ),
                 ))));
   }
 
-  Container Emailre() {
+  Container FirstNameRe() {
     return Container(
       margin: EdgeInsets.only(top: 16),
       width: screen * 0.8,
       child: TextFormField(
-        controller: Emailrepass,
+        controller: Namereset,
         decoration: InputDecoration(
-            labelText: 'E-mail',
-            prefixIcon: Icon(Icons.email_outlined),
+            labelText: 'Firstname',
+            prefixIcon: Icon(Icons.person),
             suffixIcon: IconButton(
               onPressed: () {
-                Emailrepass.clear();
+                Namereset.clear();
               },
               icon: const Icon(Icons.clear),
             ),
@@ -104,36 +97,54 @@ class _ResetpasswordState extends State<Resetpassword> {
     );
   }
 
-  Container NextToLogin() {
+  Container LastNameRe() {
+    return Container(
+      margin: EdgeInsets.only(top: 16),
+      width: screen * 0.8,
+      child: TextFormField(
+        controller: LastNamereset,
+        decoration: InputDecoration(
+            labelText: 'Lastname',
+            prefixIcon: Icon(Icons.person),
+            suffixIcon: IconButton(
+              onPressed: () {
+                LastNamereset.clear();
+              },
+              icon: const Icon(Icons.clear),
+            ),
+            enabledBorder:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
+            focusedBorder:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
+        validator: (value) {
+          final emailRegex = RegExp(
+              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+          if (value!.isEmpty) {
+            return "Please enter Email for repassword";
+          }
+          if (emailRegex.hasMatch(value)) {
+            return null;
+          } else
+            return "Please enter a valid email.";
+        },
+      ),
+    );
+  }
+
+  Container NextToReName() {
     return Container(
       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
       margin: EdgeInsets.only(top: 16),
       width: screen * 0.75,
       child: ElevatedButton(
         onPressed: () {
-          print('--------------- Email ---------------');
-
-          bool validate = _fromKey.currentState!.validate();
-          dynamic Request_page = setting_page(user: user);
-
-          if (validate) {
-            use_API APi_use = new use_API();
-            var APIre = APi_use.Reset_password(Emailrepass.text);
-            if (pagereset == "login") {
-              Request_page = Startlogin();
-            }
-
-            if (APIre['message'] == "Success") {
-              MaterialPageRoute materialPageRoute = MaterialPageRoute(
-                  builder: (BuildContext context) => Request_page);
-              Navigator.of(this.context).push(materialPageRoute);
-            } else {
-              MaterialPageRoute materialPageRoute = MaterialPageRoute(
-                  builder: (BuildContext context) => Request_page);
-              Navigator.of(this.context).push(materialPageRoute);
-            }
-            print(Emailrepass.text);
-          }
+          print('--------------- New Name ---------------');
+          MaterialPageRoute materialPageRoute = MaterialPageRoute(
+              builder: (BuildContext context) => setting_page(
+                    user: "",
+                  ));
+          Navigator.of(this.context).push(materialPageRoute);
+          print(Namereset);
         },
         child: Text(
           'Next',

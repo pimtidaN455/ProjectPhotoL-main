@@ -2,22 +2,23 @@
 
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
-import 'package:project_photo_learn/page/Backend/User_data.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
+import 'package:project_photo_learn/re_name.dart';
 
 import 'package:project_photo_learn/re_password.dart';
 
 class setting_page extends StatefulWidget {
-  const setting_page({Key? key}) : super(key: key);
+  var user;
+  setting_page({required this.user});
   @override
-  _setting_page createState() => _setting_page();
+  _setting_page createState() => _setting_page(user: user);
 }
 
 class _setting_page extends State<setting_page> {
+  var user;
+  _setting_page({required this.user});
   String title = 'AlertDialog';
   bool tappedYes = false;
-  user_file user = new user_file();
-  dynamic Request_page = FirstState(page: 3);
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +36,8 @@ class _setting_page extends State<setting_page> {
           color: MyStyle().whiteColor,
         ),
         onPressed: () {
+          dynamic Request_page = FirstState(page: 3, user: user);
+
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => (Request_page)));
         },
@@ -72,13 +75,20 @@ class _setting_page extends State<setting_page> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     color: Color.fromARGB(255, 243, 243, 243),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  ResetName(nameuser: "pimtida")));
+                    },
                     child: Row(
                       children: [
                         SizedBox(width: 20),
                         Expanded(
                             child: Text(
-                          "Name : \n" + user.Firstname + ' ' + user.Lastname,
+                          //"Name : \n" + user.Firstname + ' ' + user.Lastname,
+                          "pimtida promaut",
                           style: TextStyle(
                             color: MyStyle().darkColor,
                             fontSize: 15,
@@ -103,7 +113,7 @@ class _setting_page extends State<setting_page> {
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                  Resetpassword(pagere: "home")));
+                                  Resetpassword(pagere: "home", user: user)));
                     },
                     child: Row(
                       children: [

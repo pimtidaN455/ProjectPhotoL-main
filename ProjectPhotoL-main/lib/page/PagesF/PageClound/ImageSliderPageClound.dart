@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 
+import '../../Backend/User_data.dart';
+
 // ignore: must_be_immutable
 class SlideImageC extends StatelessWidget {
   int startImg;
@@ -26,13 +28,13 @@ class SlideImageC extends StatelessWidget {
               Icons.arrow_back_ios_new,
               color: MyStyle().blackColor,
             ),
-            onPressed: () {
+            onPressed: () async {
+              user_file user0 = new user_file();
+              var user = await user0;
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => FirstState(
-                            page: 2,
-                          )));
+                      builder: (context) => FirstState(page: 2, user: user)));
               print("ส่งชื่ออัลบั้มไปที่ ShowImage" + this.namealbumC);
             },
           ),

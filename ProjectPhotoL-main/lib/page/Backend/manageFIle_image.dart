@@ -1,3 +1,3 @@
-import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
-class manage_image {}
+import 'package:image_picker/image_picker.dart';

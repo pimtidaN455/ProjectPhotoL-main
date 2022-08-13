@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:project_photo_learn/main.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/Backend/Check_User.dart';
+import 'package:project_photo_learn/page/Backend/User_data.dart';
 import 'package:project_photo_learn/page/Start/StartPage.dart';
 import 'package:project_photo_learn/page/Start/start_register.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
@@ -156,18 +158,24 @@ class _StartloginState extends State<Startlogin> {
       child: ElevatedButton(
         onPressed: () async {
           print('--------------- Email and Password ---------------');
+          WidgetsFlutterBinding.ensureInitialized();
           bool validate = _fromKey.currentState!.validate();
 
           if (validate) {
             check_user checkuse = new check_user();
             var login = await checkuse.login(Email.text, Password.text);
-            print("Status loin is : " + await login);
+            print("Status loin is : " + await login['message']);
 
             ////////////////////////////cheack/////////////////////////
-            if (await login == "Login success") {
+            if (await login['message'] == "Login success") {
+              convert_data user = await new convert_data(await login['tokenU']);
+              print(user.Firstname);
               ////////////////////// เปลี่ยนสถานะ login //////////////////
-              MaterialPageRoute materialPageRoute = MaterialPageRoute(
-                  builder: (BuildContext context) => FirstState(page: 0));
+              MaterialPageRoute materialPageRoute;
+
+              materialPageRoute = MaterialPageRoute(
+                  builder: (BuildContext context) =>
+                      FirstState(page: 0, user: user));
               Navigator.of(this.context).push(materialPageRoute);
               print(Email.text);
               print(Password.text);
@@ -261,7 +269,7 @@ class _StartloginState extends State<Startlogin> {
             onPressed: () {
               MaterialPageRoute materialPageRoute = MaterialPageRoute(
                   builder: (BuildContext context) =>
-                      Resetpassword(pagere: "login"));
+                      Resetpassword(pagere: "login", user: ""));
               Navigator.of(this.context).push(materialPageRoute);
             },
           )

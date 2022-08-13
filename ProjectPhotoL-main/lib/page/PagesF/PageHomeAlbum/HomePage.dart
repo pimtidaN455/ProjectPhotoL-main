@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
+import 'package:project_photo_learn/page/Backend/User_data.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/AddAlbumPage.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImagePage.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({Key? key}) : super(key: key);
+  var user;
+  Homepage({required this.user});
   @override
-  AlbumScreenWidget createState() => AlbumScreenWidget();
+  AlbumScreenWidget createState() => AlbumScreenWidget(user: user);
 }
 
 class AlbumScreenWidget extends State<Homepage> {
+  var user;
+  AlbumScreenWidget({required this.user});
   int optionSelected = 0;
   late int selectbum;
   void checkOption(int index) {
@@ -108,7 +112,10 @@ class _GridItem extends StatelessWidget {
               MaterialPageRoute(
                   builder: (context) =>
                       //ShowImage(name: title, selectbum: selectbum)
-                      ShowImage(name: title, selectbum: selectbum)));
+                      ShowImage(
+                        name: title,
+                        selectbum: selectbum,
+                      )));
           print("เลือกอัลบั้มที่ : ");
           print(selectbum);
           print("///////////////////////////////////////////////////////");

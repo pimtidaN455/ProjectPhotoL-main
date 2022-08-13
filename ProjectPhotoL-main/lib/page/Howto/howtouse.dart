@@ -3,6 +3,8 @@ import 'package:project_photo_learn/page/Howto/HowtoList/howto1.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 import 'package:project_photo_learn/page/Start/StartPage.dart';
 
+import '../Backend/User_data.dart';
+
 // ignore: must_be_immutable
 class HowToUse2 extends StatefulWidget {
   //const HowToUse2({Key? key}) : super(key: key);
@@ -16,7 +18,7 @@ class _HowtoWidgetState extends State<HowToUse2> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   String pagehowto;
   _HowtoWidgetState({required this.pagehowto});
-  dynamic Request_page = FirstState(page: 3);
+  dynamic Request_page;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,9 +26,16 @@ class _HowtoWidgetState extends State<HowToUse2> {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new),
-          onPressed: () {
+          onPressed: () async {
+            user_file user0 = new user_file();
+            var user = await user0;
             if (pagehowto == "startpage") {
               Request_page = Start_page();
+            } else {
+              Request_page = FirstState(
+                page: 3,
+                user: user,
+              );
             }
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Request_page));

@@ -4,6 +4,8 @@ import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImageSliderPage.da
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 
+import '../../Backend/User_data.dart';
+
 // ignore: must_be_immutable
 class ShowImage extends StatefulWidget {
   var name;
@@ -33,9 +35,13 @@ class Allimages extends State<ShowImage> {
               Icons.arrow_back_ios_new,
               color: MyStyle().blackColor,
             ),
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => FirstState(page: 0)));
+            onPressed: () async {
+              user_file user0 = new user_file();
+              var user = await user0;
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => FirstState(page: 0, user: user)));
             },
           ),
           backgroundColor: MyStyle().whiteColor,
