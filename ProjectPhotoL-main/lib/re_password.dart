@@ -64,7 +64,7 @@ class _ResetpasswordState extends State<Resetpassword> {
                         ),
                       ),
                       Emailre(),
-                      NextToLogin(),
+                      NextToRePassWord(),
                     ],
                   ),
                 ))));
@@ -104,26 +104,39 @@ class _ResetpasswordState extends State<Resetpassword> {
     );
   }
 
-  Container NextToLogin() {
+  Container NextToRePassWord() {
     return Container(
       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
       margin: EdgeInsets.only(top: 16),
       width: screen * 0.75,
       child: ElevatedButton(
-        onPressed: () {
-          print('--------------- Email ---------------');
-
+        /* onPressed: () => showDialog<String>(
+          context: context,
+          builder: (BuildContext context) => AlertDialog(
+            title: Text(
+                'Application ได้ทำการส่ง Email เพื่อให้ผู้ใข้ทำการเปลี่ยนรหัสผ่านดรียบร้อย'),
+          ),
+        ),*/
+        onPressed: () async {
           bool validate = _fromKey.currentState!.validate();
           dynamic Request_page = setting_page(user: user);
 
           if (validate) {
-            use_API APi_use = new use_API();
+            /*use_API APi_use = new use_API();
             var APIre = APi_use.Reset_password(Emailrepass.text);
             if (pagereset == "login") {
-              Request_page = Startlogin();
-            }
+              //Request_page = Startlogin();
+            }*/
 
-            if (APIre['message'] == "Success") {
+            //if (APIre['message'] == "Success") {
+            if (true) {
+              await showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: Text(
+                      'Application ได้ทำการส่ง Email เพื่อให้ผู้ใข้ทำการเปลี่ยนรหัสผ่านเรียบร้อย'),
+                ),
+              );
               MaterialPageRoute materialPageRoute = MaterialPageRoute(
                   builder: (BuildContext context) => Request_page);
               Navigator.of(this.context).push(materialPageRoute);
@@ -131,7 +144,14 @@ class _ResetpasswordState extends State<Resetpassword> {
               MaterialPageRoute materialPageRoute = MaterialPageRoute(
                   builder: (BuildContext context) => Request_page);
               Navigator.of(this.context).push(materialPageRoute);
+              /*showDialog<String>(
+                context: context,
+                builder: (BuildContext context) => AlertDialog(
+                  title: Text(' ไม่พบ Email ที่คุณป้อน กรุณาใส่ใหม่'),
+                ),
+              );*/
             }
+
             print(Emailrepass.text);
           }
         },

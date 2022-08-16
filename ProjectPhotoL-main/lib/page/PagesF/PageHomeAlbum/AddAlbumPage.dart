@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:project_photo_learn/my_style.dart';
+import 'package:project_photo_learn/page/PagesF/PageSearch/SearchPage.dart';
+import 'package:project_photo_learn/page/PagesF/PageSearch/tag_state.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 
 import '../../Backend/User_data.dart';
+
+var suggestTag2 = ["Pizza", "Pasta", "Spagetti"];
 
 class Add_Album_Page extends StatefulWidget {
   const Add_Album_Page({Key? key}) : super(key: key);
@@ -12,7 +20,7 @@ class Add_Album_Page extends StatefulWidget {
 
 class Add_Album_PageState extends State<Add_Album_Page> {
   late double screen;
-
+  final controller = Get.put(TagStateController());
   TextEditingController Add_Name_SubJ = TextEditingController();
   TextEditingController Add_Keyword_SubJ = TextEditingController();
   //bool _isObscure = true;
@@ -22,62 +30,144 @@ class Add_Album_PageState extends State<Add_Album_Page> {
   @override
   Widget build(BuildContext context) {
     screen = MediaQuery.of(context).size.width;
-    return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios_new,
-              color: Colors.black,
+    return SafeArea(
+      child: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              "Add Album",
+              style: TextStyle(
+                fontSize: 30,
+                color: MyStyle().blackColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Rajdhani',
+              ),
             ),
-            onPressed: () async {
-              user_file user0 = new user_file();
-              var user = await user0;
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => FirstState(
-                            page: 0,
-                            user: user,
-                          )));
-            },
+            leading: IconButton(
+              icon: Icon(
+                Icons.arrow_back_ios_new,
+                color: Colors.black,
+              ),
+              onPressed: () async {
+                user_file user0 = new user_file();
+                var user = await user0;
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => FirstState(
+                              page: 0,
+                              user: user,
+                            )));
+              },
+            ),
+            backgroundColor: MyStyle().whiteColor,
           ),
-          backgroundColor: MyStyle().whiteColor,
-        ),
-        body: Container(
-            alignment: Alignment.topCenter,
-            child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10, 30, 0, 0),
+          body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Text(
+              "\n   Name of subject",
+              style: TextStyle(
+                fontSize: 25,
+                color: MyStyle().blackColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Rajdhani',
+              ),
+            ),
+            Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                 child: Form(
                   key: _fromKey,
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    //mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        'Name of subject',
-                        style: TextStyle(
-                          fontSize: 30,
-                          color: MyStyle().blackColor,
-                          fontWeight: FontWeight.bold,
-                          //fontStyle: FontStyle.normal,
-                          fontFamily: 'Rajdhani',
-                        ),
-                      ),
                       AddNameSubJ(),
-                      Text(
-                        'Add keyword',
-                        style: TextStyle(
-                          fontSize: 30,
-                          color: MyStyle().blackColor,
-                          fontWeight: FontWeight.bold,
-                          //fontStyle: FontStyle.normal,
-                          fontFamily: 'Rajdhani',
-                        ),
-                      ),
-                      AddKeywordSubJ(),
-                      buttonaddbum()
                     ],
                   ),
-                ))));
+                )),
+            Text(
+              '   Add keyword',
+              style: TextStyle(
+                fontSize: 25,
+                color: MyStyle().blackColor,
+                fontWeight: FontWeight.bold,
+                //fontStyle: FontStyle.normal,
+                fontFamily: 'Rajdhani',
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: TypeAheadField(
+                textFieldConfiguration: TextFieldConfiguration(
+                  controller: Add_Keyword_SubJ,
+                  onEditingComplete: () {
+                    controller.listTags.add(Add_Keyword_SubJ.text);
+                    Add_Keyword_SubJ.clear();
+                  },
+                  autofocus: false,
+                  style: TextStyle(fontSize: 20),
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Tag',
+                    //contentPadding: EdgeInsets.symmetric(vertical: 2),
+                    prefixIcon: Icon(Icons.tag),
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        if (Add_Keyword_SubJ.text != "") {
+                          controller.listTags.add(Add_Keyword_SubJ.text);
+                        }
+                        Add_Keyword_SubJ.clear();
+                      },
+                      icon: const Icon(Icons.add),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25)),
+                  ),
+                ),
+                suggestionsCallback: (String pattern) {
+                  return suggestTag2.where(
+                      (e) => e.toLowerCase().contains(pattern.toLowerCase()));
+                },
+                onSuggestionSelected: (String suggestion) =>
+                    controller.listTags.add(suggestion),
+                itemBuilder: (BuildContext context, Object? itemData) {
+                  return ListTile(
+                    leading: Icon(Icons.tag),
+                    title: Text(itemData.toString()),
+                  );
+                },
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "   # ที่คุณต้องการเพิ่ม ",
+              style: TextStyle(
+                fontSize: 20,
+                color: MyStyle().blackColor,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Rajdhani',
+              ),
+            ),
+            Obx(() => controller.listTags.length == 0
+                ? Center(
+                    child: Text('\n No tag'),
+                  )
+                : Wrap(
+                    children: controller.listTags
+                        .map((element) => Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4),
+                              child: Chip(
+                                label: Text(element),
+                                deleteIcon: Icon(Icons.clear),
+                                onDeleted: () =>
+                                    controller.listTags.remove(element),
+                              ),
+                            ))
+                        .toList(),
+                  )),
+            buttonaddbum(),
+          ])),
+    );
   }
 
   Container AddNameSubJ() {
@@ -113,40 +203,9 @@ class Add_Album_PageState extends State<Add_Album_Page> {
     );
   }
 
-  Container AddKeywordSubJ() {
-    return Container(
-      margin: EdgeInsets.only(top: 16, bottom: 16),
-      width: screen * 0.8,
-      child: TextFormField(
-        controller: Add_Keyword_SubJ,
-        decoration: InputDecoration(
-            suffixIcon: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.add),
-            ),
-            labelText: 'Add keyword',
-            //prefixIcon: Icon(Icons.email_outlined),
-            enabledBorder:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
-            focusedBorder:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
-        validator: (value) {
-          final Add_Keyword_SubJ = RegExp(r"^[a-zA-Zก-๏\s]");
-          if (value!.isEmpty) {
-            return "Please enter keyword";
-          }
-          if (Add_Keyword_SubJ.hasMatch(value)) {
-            return null;
-          } else
-            return "Please enter a-z A-Z 0-9 ก-ฮ";
-        },
-      ),
-    );
-  }
-
   Container buttonaddbum() {
     return Container(
-      margin: EdgeInsets.only(top: 16),
+      margin: EdgeInsets.all(50.0),
       width: screen * 0.75,
       child: ElevatedButton(
         child: Text('Add Album'),

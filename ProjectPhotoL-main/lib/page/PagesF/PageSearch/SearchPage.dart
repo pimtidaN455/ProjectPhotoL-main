@@ -9,8 +9,11 @@ var suggestTag = ["Pizza", "Pasta", "Spagetti"];
 class Searchpage extends StatelessWidget {
   final controller = Get.put(TagStateController());
   final textController = TextEditingController();
+  late double screen;
+  final _fromKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
+    screen = MediaQuery.of(context).size.width;
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
@@ -108,8 +111,32 @@ class Searchpage extends StatelessWidget {
                           ),
                         ))
                     .toList(),
-              ))
+              )),
+        Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              buttonSearch(),
+            ])
       ]),
     ));
+  }
+
+  Container buttonSearch() {
+    return Container(
+      margin: EdgeInsets.all(50.0),
+      width: screen * 0.75,
+      child: ElevatedButton(
+        child: Text('Search'),
+        onPressed: () async {
+          print('--------------- Add Album ---------------');
+        },
+        style: ElevatedButton.styleFrom(
+            primary: MyStyle().blackColor,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10))),
+      ),
+    );
   }
 }

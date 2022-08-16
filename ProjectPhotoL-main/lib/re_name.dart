@@ -137,7 +137,13 @@ class _ResetNameState extends State<ResetName> {
       margin: EdgeInsets.only(top: 16),
       width: screen * 0.75,
       child: ElevatedButton(
-        onPressed: () {
+        onPressed: () async {
+          await showDialog<String>(
+            context: context,
+            builder: (BuildContext context) => AlertDialog(
+              title: Text('เปลี่ยนชื่อผู้ใช้เรียบร้อย'),
+            ),
+          );
           print('--------------- New Name ---------------');
           MaterialPageRoute materialPageRoute = MaterialPageRoute(
               builder: (BuildContext context) => setting_page(

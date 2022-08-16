@@ -107,7 +107,7 @@ class _Body extends State<Body> {
             ),
           ),
           SizedBox(
-            height: 100,
+            height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
