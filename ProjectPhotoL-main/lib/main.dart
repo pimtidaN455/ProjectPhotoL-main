@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/page/Backend/User_data.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
