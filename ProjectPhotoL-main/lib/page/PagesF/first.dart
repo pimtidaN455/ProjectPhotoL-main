@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_photo_learn/main.dart';
 import 'package:project_photo_learn/page/PagesF/PageClound/Importpic2.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/HomePage.dart';
 import 'package:project_photo_learn/page/PagesF/PagePerson/PersonPage2.dart';
