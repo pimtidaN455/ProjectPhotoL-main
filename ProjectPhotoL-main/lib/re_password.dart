@@ -49,25 +49,26 @@ class _ResetpasswordState extends State<Resetpassword> {
             child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
                 child: Form(
-                  key: _fromKey,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Reset password',
-                        style: TextStyle(
-                          fontSize: 50,
-                          color: MyStyle().blackColor,
-                          fontWeight: FontWeight.bold,
-                          //fontStyle: FontStyle.normal,
-                          fontFamily: 'Rajdhani',
-                        ),
+                    key: _fromKey,
+                    child: SingleChildScrollView(
+                      padding: EdgeInsets.all(10),
+                      child: Column(
+                        children: [
+                          Text(
+                            'Reset password',
+                            style: TextStyle(
+                              fontSize: 50,
+                              color: MyStyle().blackColor,
+                              fontWeight: FontWeight.bold,
+                              //fontStyle: FontStyle.normal,
+                              fontFamily: 'Rajdhani',
+                            ),
+                          ),
+                          Emailre(),
+                          NextToRePassWord(),
+                        ],
                       ),
-                      Emailre(),
-                      NextToRePassWord(),
-                    ],
-                  ),
-                ))));
+                    )))));
   }
 
   Container Emailre() {

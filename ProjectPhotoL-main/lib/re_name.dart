@@ -15,11 +15,11 @@ class _ResetNameState extends State<ResetName> {
   late double screen;
   TextEditingController Namereset = TextEditingController();
   TextEditingController LastNamereset = TextEditingController();
-  bool _isObscure = true;
   final _fromKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    //final isKeyboard = MediaQuery.of(context).viewInsets.bottom != 0;
     screen = MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: AppBar(
@@ -42,23 +42,27 @@ class _ResetNameState extends State<ResetName> {
                 padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
                 child: Form(
                   key: _fromKey,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        'Reset Name',
-                        style: TextStyle(
-                          fontSize: 30,
-                          color: MyStyle().blackColor,
-                          fontWeight: FontWeight.bold,
-                          //fontStyle: FontStyle.normal,
-                          fontFamily: 'Rajdhani',
+                  child: SingleChildScrollView(
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      children: [
+                        //if (!isKeyboard)
+                        Text(
+                          'Reset Name',
+                          style: TextStyle(
+                            fontSize: 40,
+                            color: MyStyle().blackColor,
+                            fontWeight: FontWeight.bold,
+                            //fontStyle: FontStyle.normal,
+                            fontFamily: 'Rajdhani',
+                          ),
                         ),
-                      ),
-                      FirstNameRe(),
-                      LastNameRe(),
-                      NextToReName(),
-                    ],
+                        FirstNameRe(),
+                        LastNameRe(),
+                        NextToReName(),
+                      ],
+                    ),
+                    //mainAxisSize: MainAxisSize.min,
                   ),
                 ))));
   }
@@ -83,15 +87,14 @@ class _ResetNameState extends State<ResetName> {
             focusedBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
         validator: (value) {
-          final emailRegex = RegExp(
-              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+          final Namereset = RegExp(r"[A-Za-z]");
           if (value!.isEmpty) {
-            return "Please enter Email for repassword";
+            return "Please enter Name";
           }
-          if (emailRegex.hasMatch(value)) {
+          if (Namereset.hasMatch(value)) {
             return null;
           } else
-            return "Please enter a valid email.";
+            return "ควย";
         },
       ),
     );
@@ -117,15 +120,14 @@ class _ResetNameState extends State<ResetName> {
             focusedBorder:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
         validator: (value) {
-          final emailRegex = RegExp(
-              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+          final LastNamereset = RegExp("[A-Za-z]");
           if (value!.isEmpty) {
-            return "Please enter Email for repassword";
+            return "Please enter Lastname";
           }
-          if (emailRegex.hasMatch(value)) {
+          if (LastNamereset.hasMatch(value)) {
             return null;
           } else
-            return "Please enter a valid email.";
+            return "ควย.";
         },
       ),
     );
@@ -138,19 +140,23 @@ class _ResetNameState extends State<ResetName> {
       width: screen * 0.75,
       child: ElevatedButton(
         onPressed: () async {
-          await showDialog<String>(
-            context: context,
-            builder: (BuildContext context) => AlertDialog(
-              title: Text('เปลี่ยนชื่อผู้ใช้เรียบร้อย'),
-            ),
-          );
-          print('--------------- New Name ---------------');
-          MaterialPageRoute materialPageRoute = MaterialPageRoute(
-              builder: (BuildContext context) => setting_page(
-                    user: "",
-                  ));
-          Navigator.of(this.context).push(materialPageRoute);
-          print(Namereset);
+          bool validate = _fromKey.currentState!.validate();
+          if (validate) {
+            print('--------------- New Name ---------------');
+            print(Namereset);
+            print(LastNamereset);
+            await showDialog<String>(
+              context: context,
+              builder: (BuildContext context) => AlertDialog(
+                title: Text('เปลี่ยนชื่อผู้ใช้เรียบร้อย'),
+              ),
+            );
+            MaterialPageRoute materialPageRoute = MaterialPageRoute(
+                builder: (BuildContext context) => setting_page(
+                      user: "",
+                    ));
+            Navigator.of(this.context).push(materialPageRoute);
+          }
         },
         child: Text(
           'Next',
