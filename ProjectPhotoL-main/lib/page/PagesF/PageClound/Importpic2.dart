@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:async';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:project_photo_learn/my_style.dart';
@@ -42,6 +43,7 @@ class _MyAppState5 extends State<Import_Image_Cloud> {
 
   @override
   Widget build(BuildContext context) {
+    String namepic;
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
@@ -95,8 +97,10 @@ class _MyAppState5 extends State<Import_Image_Cloud> {
                 crossAxisCount: 3,
                 children: List.generate(images.length, (index) {
                   Asset asset = images[index];
-                  print("0000000000000000000000000");
+                  print("ชื่อรูปภาพที่ : ");
+                  print(index);
                   print(images[index].name);
+                  //print(rootBundle.loadString);
                   print("0000000000000000000000000");
                   return AssetThumb(
                     asset: asset,
