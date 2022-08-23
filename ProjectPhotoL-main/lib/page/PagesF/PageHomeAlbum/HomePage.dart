@@ -1,6 +1,7 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
-import 'package:project_photo_learn/page/Backend/User_data.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/AddAlbumPage.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/places_data.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/ImagePage.dart';

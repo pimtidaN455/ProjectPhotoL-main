@@ -1,4 +1,4 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';

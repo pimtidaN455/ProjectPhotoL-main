@@ -14,6 +14,7 @@ void main() async {
   ));
 }
 
+// ignore: must_be_immutable
 class MyApp extends StatefulWidget {
   var user;
   MyApp({required this.user});

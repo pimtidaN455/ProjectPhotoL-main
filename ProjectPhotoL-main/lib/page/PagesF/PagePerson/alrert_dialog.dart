@@ -1,8 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
-import 'package:project_photo_learn/main.dart';
 import 'package:project_photo_learn/page/Backend/Check_User.dart';
 import 'package:project_photo_learn/page/Start/StartPage.dart';
-import 'package:project_photo_learn/page/Start/start_login.dart';
 
 enum DialogsAction { yes, cancel }
 

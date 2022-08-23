@@ -1,12 +1,10 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
-import 'package:project_photo_learn/page/Backend/User_data.dart';
 import 'package:project_photo_learn/page/Howto/howtouse.dart';
 import 'package:project_photo_learn/page/PagesF/PagePerson/alrert_dialog.dart';
 import 'package:project_photo_learn/page/PagesF/PagePerson/setting_page.dart';
-import 'package:project_photo_learn/re_password.dart';
 
 class Person_page1 extends StatefulWidget {
   var user;

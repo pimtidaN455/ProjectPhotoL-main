@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_photo_learn/main.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/Backend/Check_User.dart';
 import 'package:project_photo_learn/page/Backend/User_data.dart';
@@ -7,7 +6,6 @@ import 'package:project_photo_learn/page/Start/StartPage.dart';
 import 'package:project_photo_learn/page/Start/start_register.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 import 'package:project_photo_learn/re_password.dart';
-import 'dart:async';
 
 class Startlogin extends StatefulWidget {
   const Startlogin({Key? key}) : super(key: key);

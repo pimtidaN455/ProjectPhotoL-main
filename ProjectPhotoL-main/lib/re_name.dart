@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
 import 'package:project_photo_learn/page/PagesF/PagePerson/setting_page.dart';

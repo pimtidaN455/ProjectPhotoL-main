@@ -42,6 +42,7 @@ class user_file {
   }
 
   void getdata_user_file() async {
+    // ignore: unused_local_variable
     var data_json = await getApplicationSupportDirectory()
         .then((Directory directory) async {
       print("dododo");

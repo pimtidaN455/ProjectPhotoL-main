@@ -1,6 +1,7 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/my_style.dart';
-import 'package:project_photo_learn/page/Backend/Use_Api.dart';
 import 'package:project_photo_learn/page/PagesF/PagePerson/setting_page.dart';
 
 import 'package:project_photo_learn/page/Start/start_login.dart';
@@ -22,7 +23,7 @@ class _ResetpasswordState extends State<Resetpassword> {
 
   late double screen;
   TextEditingController Emailrepass = TextEditingController();
-  bool _isObscure = true;
+  //bool _isObscure = true;
   final _fromKey = GlobalKey<FormState>();
 
   @override

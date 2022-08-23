@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'dart:async';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:project_photo_learn/my_style.dart';
@@ -43,7 +42,6 @@ class _MyAppState5 extends State<Import_Image_Cloud> {
 
   @override
   Widget build(BuildContext context) {
-    String namepic;
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
