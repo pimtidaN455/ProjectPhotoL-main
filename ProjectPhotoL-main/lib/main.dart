@@ -1,7 +1,10 @@
+// ignore_for_file: invalid_language_version_override
+
 import 'package:flutter/material.dart';
 import 'package:project_photo_learn/page/Backend/User_data.dart';
 import 'package:project_photo_learn/page/PagesF/first.dart';
 import 'package:project_photo_learn/page/Start/StartPage.dart';
+//@dart=2.9
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

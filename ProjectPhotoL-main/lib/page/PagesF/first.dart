@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_photo_learn/Sqfl/PageClound2.dart';
 import 'package:project_photo_learn/Sqfl/SaveImageDemoSQLite.dart';
 import 'package:project_photo_learn/page/PagesF/PageHomeAlbum/HomePage.dart';
 import 'package:project_photo_learn/page/PagesF/PagePerson/PersonPage2.dart';
@@ -25,7 +26,7 @@ class _FirstState extends State<FirstState> {
     final Screen = [
       Homepage(user: user),
       Searchpage(),
-      SaveImageDemoSQLite(),
+      SaveImageDemoSQLite2(),
       Person_page1(user: user)
     ];
 
