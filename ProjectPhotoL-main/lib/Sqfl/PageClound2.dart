@@ -12,6 +12,7 @@ import 'Photo.dart';
 import 'dart:async';
 import 'package:multi_image_picker/multi_image_picker.dart';
 
+//เลือกได้ทีละภาพ เอาใส่ sqlite database ได้แล้ว
 class SaveImageDemoSQLite2 extends StatefulWidget {
   SaveImageDemoSQLite2() : super();
 
@@ -22,11 +23,16 @@ class SaveImageDemoSQLite2 extends StatefulWidget {
 }
 
 class _SaveImageDemoSQLiteState2 extends State<SaveImageDemoSQLite2> {
-  //
+  //สร้าง file
   late Future<File> imageFile;
+  //สร้าง ตัวแปรรับรูป
   late Image image;
+  //คลังเก็บข้อมูล
   late DBHelper dbHelper;
+  // ลิสเก็บรูปภาพ
   late List<Photo> images;
+
+  late int Idphoto = 0;
 
   @override
   void initState() {
@@ -34,7 +40,7 @@ class _SaveImageDemoSQLiteState2 extends State<SaveImageDemoSQLite2> {
     images = [];
     dbHelper = DBHelper();
     refreshImages();
-    print(images.length);
+    print(images);
   }
 
   refreshImages() {
@@ -46,50 +52,20 @@ class _SaveImageDemoSQLiteState2 extends State<SaveImageDemoSQLite2> {
     });
   }
 
-  pickImageFromGallery() {
+  pickImageFromGallery(int idphoto) {
     ImagePicker.pickImage(source: ImageSource.gallery).then((imgFile) {
       String imgString = Utility.base64String(imgFile.readAsBytesSync());
-      Photo photo = Photo(0, imgString);
+      Photo photo = Photo(Idphoto, imgString);
       dbHelper.save(photo);
-      print("Name Photo base 64");
-      print(photo.photoName);
+      //print("Name Photo base 64");
+      //print(photo.photoName);
+      print("เลือกใหม่");
+      print("ID photo");
+      print(Idphoto);
       print("Path photo");
       print(imgFile);
       refreshImages();
-      //deleteImage(imgFile);
     });
-
-    deleteImage(File imgFile) {
-      File file = new File('yourFilePathHere');
-      var deleted = file.delete();
-      setState(() {
-        images.clear();
-        images.remove(deleted);
-      });
-    }
-
-    deleteImageFromGallery() {}
-
-    /*List<Asset> imgFile = <Asset>[];
-
-    MultiImagePicker.pickImages(
-      maxImages: 300,
-      enableCamera: true,
-      selectedAssets: imgFile,
-    ).then((imgFile) {
-      final file = File(imgFile.);
-      String imgString = Utility.base64String(file.readAsBytesSync());
-      Photo photo = Photo(0, imgString);
-      dbHelper.save(photo);
-      refreshImages();
-    });
-
-    maxImages: 300,
-      enableCamera: true,
-      selectedAssets: images,
-      materialOptions: MaterialOptions(
-        actionBarTitle: "Gallery",
-      ),*/
   }
 
   gridView() {
@@ -103,7 +79,13 @@ class _SaveImageDemoSQLiteState2 extends State<SaveImageDemoSQLite2> {
           crossAxisCount: 2,
           children: images.map(
             (photo) {
-              // ignore: unused_label
+              //ignore: unused_label
+              print("////////โชว์ที่ขึ้นกรอบ/////////");
+              print("ID รูปภาพ : ");
+              print(photo.id);
+              //print("ชื่อรูปภาพ : ");
+              //print(photo.photoName);
+              print("/////////////////");
               return Utility.imageFromBase64String(photo.photoName);
             },
           ).toList()),
@@ -130,7 +112,8 @@ class _SaveImageDemoSQLiteState2 extends State<SaveImageDemoSQLite2> {
               color: MyStyle().blackColor,
             ),
             onPressed: () {
-              pickImageFromGallery();
+              Idphoto = Idphoto + 1;
+              pickImageFromGallery(Idphoto);
             },
           ),
           TextButton(
