@@ -1,4 +1,4 @@
-// ignore_for_file: import_of_legacy_library_into_null_safe
+/*//ignore_for_file: import_of_legacy_library_into_null_safe
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -92,4 +92,4 @@ class _SaveImageDemoSQLiteState extends State<SaveImageDemoSQLite> {
       ),
     );
   }
-}
+} */

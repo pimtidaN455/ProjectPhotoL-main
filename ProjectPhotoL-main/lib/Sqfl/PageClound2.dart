@@ -1,4 +1,4 @@
-// ignore_for_file: import_of_legacy_library_into_null_safe
+/*// ignore_for_file: import_of_legacy_library_into_null_safe
 
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
@@ -142,4 +142,4 @@ class _SaveImageDemoSQLiteState2 extends State<SaveImageDemoSQLite2> {
       ),
     );
   }
-}
+}*/

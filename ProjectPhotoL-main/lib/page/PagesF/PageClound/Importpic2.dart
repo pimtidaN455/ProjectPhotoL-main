@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:project_photo_learn/my_style.dart';
 
+//เลือกได้หลายรูปแต่ไม่เก็บลง
+
 class Import_Image_Cloud extends StatefulWidget {
   @override
   _MyAppState5 createState() => new _MyAppState5();
