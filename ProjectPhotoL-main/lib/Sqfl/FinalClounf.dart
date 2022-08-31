@@ -4,6 +4,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:project_photo_learn/Sqfl/DBHelper.dart';
+import 'package:project_photo_learn/Sqfl/Photo.dart';
 import 'package:project_photo_learn/Sqfl/Utility.dart';
 
 class PageCloud extends StatelessWidget {
@@ -42,24 +44,57 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final ImagePicker imagePicker = ImagePicker();
-
   List<XFile>? imageFileList = [];
+  late String imgString;
+  //สร้าง file
+  late Future<File> imageFile;
+  //สร้าง ตัวแปรรับรูป
+  late Image image;
+  //คลังเก็บข้อมูล
+  late DBHelper dbHelper;
+  // ลิสเก็บรูปภาพ
+  late List<Photo> images;
+
+  late int Idphoto = 0;
+
+  void initState() {
+    super.initState();
+    images = [];
+    dbHelper = DBHelper();
+    refreshImages();
+    print(images);
+  }
+
+  refreshImages() {
+    dbHelper.getPhotos().then((imgs) {
+      setState(() {
+        images.clear();
+        images.addAll(imgs);
+      });
+    });
+  }
 
   void selectImages() async {
     final List<XFile>? selectedImages = await imagePicker.pickMultiImage();
     if (selectedImages!.isNotEmpty) {
       imageFileList!.addAll(selectedImages);
-      print("////////////////////////////");
+
       for (var item in imageFileList!) {
         print("////////////////////////////");
         print(item.name);
         print(item.path);
         print("////////////////////////////");
+        imgString = Utility.base64String(await item.readAsBytes());
+        Photo photo = Photo(1, imgString);
+        print(imgString);
+        print("////////////////////////////");
+        dbHelper.save(photo);
+        refreshImages();
       }
 
       //String imgString = Utility.base64String(imageFileList.readAsBytesSync());
     }
-    setState(() {});
+    //setState(() {});
   }
 
   @override

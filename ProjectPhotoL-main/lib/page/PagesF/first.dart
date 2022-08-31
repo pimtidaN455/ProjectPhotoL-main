@@ -27,7 +27,7 @@ class _FirstState extends State<FirstState> {
     final Screen = [
       Homepage(user: user),
       Searchpage(),
-      PageCloud(),
+      SaveImageDemoSQLite2(),
       Person_page1(user: user)
     ];
 
