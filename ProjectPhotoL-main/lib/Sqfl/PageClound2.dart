@@ -89,26 +89,20 @@ class _SaveImageDemoSQLiteState2 extends State<SaveImageDemoSQLite2> {
 
   gridView() {
     return Padding(
-      padding: EdgeInsets.all(5.0),
-      child: GridView.count(
-          mainAxisSpacing: 8,
-          crossAxisSpacing: 8,
-          padding: EdgeInsets.all(8),
+        padding: EdgeInsets.all(5.0),
+        child: GridView.count(
+          crossAxisCount: 3,
+          mainAxisSpacing: 4,
+          crossAxisSpacing: 4,
+          padding: EdgeInsets.all(0),
           childAspectRatio: 1 / 1.2,
-          crossAxisCount: 2,
           children: images.map(
             (photo) {
-              //ignore: unused_label
-              print("////////โชว์ที่ขึ้นกรอบ/////////");
-              print("ID รูปภาพ : ");
-              print(photo.id);
-              //print("ชื่อรูปภาพ : ");
-              //print(photo.photoName);
               print("/////////////////");
               return Utility.imageFromBase64String(photo.photoName);
             },
-          ).toList()),
-    );
+          ).toList(),
+        ));
   }
 
   @override
@@ -148,6 +142,7 @@ class _SaveImageDemoSQLiteState2 extends State<SaveImageDemoSQLite2> {
                 ),
               ))
         ],
+        automaticallyImplyLeading: false,
       ),
       body: Center(
         child: Column(

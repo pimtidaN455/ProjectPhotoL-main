@@ -57,10 +57,10 @@ class Allimages extends State<ShowImage> {
           ),
           automaticallyImplyLeading: false,
         ),
-        body: GridView.extent(
-          maxCrossAxisExtent: 200,
-          mainAxisSpacing: 8,
-          crossAxisSpacing: 8,
+        body: GridView.count(
+          crossAxisCount: 3,
+          mainAxisSpacing: 4,
+          crossAxisSpacing: 4,
           padding: EdgeInsets.all(8),
           childAspectRatio: 1 / 1.2,
           children: <Widget>[
