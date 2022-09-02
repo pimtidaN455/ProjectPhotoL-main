@@ -1,4 +1,4 @@
-// ignore_for_file: import_of_legacy_library_into_null_safe
+/*// ignore_for_file: import_of_legacy_library_into_null_safe
 
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ import 'package:multi_image_picker/multi_image_picker.dart';
 class SaveImageDemoSQLite2 extends StatefulWidget {
   SaveImageDemoSQLite2() : super();
 
-  final String title = "Clound";
+  final String title = "เลือกหลายรูปเก็บชื่อไม่ตรง";
 
   @override
   _SaveImageDemoSQLiteState2 createState() => _SaveImageDemoSQLiteState2();
@@ -24,7 +24,7 @@ class SaveImageDemoSQLite2 extends StatefulWidget {
 
 class _SaveImageDemoSQLiteState2 extends State<SaveImageDemoSQLite2> {
   final ImagePicker imagePicker = ImagePicker();
-  List<XFile>? imageFileList = [];
+  //List<XFile>? imageFileList = [];
   //สร้าง file
   late Future<File> imageFile;
   //สร้าง ตัวแปรรับรูป
@@ -55,25 +55,31 @@ class _SaveImageDemoSQLiteState2 extends State<SaveImageDemoSQLite2> {
   }
 
   pickImageFromGallery(int idphoto) async {
-    final List<XFile>? selectedImages = await imagePicker.pickMultiImage();
-    if (selectedImages!.isNotEmpty) {
+    //final List<File>? selectedImages = await imagePicker.pickMultiImage();
+    /*if (selectedImages!.isNotEmpty) {
       imageFileList!.addAll(selectedImages);
 
-      for (var item in imageFileList!) {
+      for (var item in selectedImages!) {
+        print("////////////////////////////");
+        print(selectedImages);
+        print("////////////////////////////");
+        print(item.toString());
+        print(item.mimeType);
+        print(item.openRead());
         print("////////////////////////////");
         print(item.name);
         print(item.path);
         print("////////////////////////////");
         String imgString = Utility.base64String(await item.readAsBytes());
         Photo photo = Photo(1, imgString);
-        print(imgString);
+        //print(imgString);
         print("////////////////////////////");
         dbHelper.save(photo);
-        refreshImages();
       }
-    }
-    /*ImagePicker.pickImage(source: ImageSource.gallery).then((imgFile) {
-      String imgString = Utility.base64String(imgFile!.readAsBytesSync());
+      refreshImages();
+    }*/
+    ImagePicker.pickImage(source: ImageSource.gallery).then((imgFile) {
+      String imgString = Utility.base64String(imgFile.readAsBytesSync());
       Photo photo = Photo(Idphoto, imgString);
       dbHelper.save(photo);
       //print("Name Photo base 64");
@@ -83,8 +89,8 @@ class _SaveImageDemoSQLiteState2 extends State<SaveImageDemoSQLite2> {
       print(Idphoto);
       print("Path photo");
       print(imgFile);
-      refreshImages();
-    });*/
+    });
+    refreshImages();
   }
 
   gridView() {
@@ -156,4 +162,4 @@ class _SaveImageDemoSQLiteState2 extends State<SaveImageDemoSQLite2> {
       ),
     );
   }
-}
+}*/

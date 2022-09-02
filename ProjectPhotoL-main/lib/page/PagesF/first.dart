@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_photo_learn/Sqfl/FilePicker.dart';
+import 'package:project_photo_learn/Sqfl/NewClound.dart';
 import 'package:project_photo_learn/Sqfl/PageClound2.dart';
 import 'package:project_photo_learn/page/PagesF/PageClound/Importpic2.dart';
 import 'package:project_photo_learn/Sqfl/FinalClounf.dart';
@@ -27,7 +29,7 @@ class _FirstState extends State<FirstState> {
     final Screen = [
       Homepage(user: user),
       Searchpage(),
-      SaveImageDemoSQLite2(),
+      FilePic(),
       Person_page1(user: user)
     ];
 
