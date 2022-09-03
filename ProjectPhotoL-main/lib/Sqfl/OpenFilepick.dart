@@ -61,7 +61,8 @@ class _FilesPageState extends State<FilesPage> {
     final fileSize =
         mb >= 1 ? '${mb.toStringAsFixed(2)} MB' : '${kb.toStringAsFixed(2)} KB';
     final extension = file.extension ?? 'none';
-
+    print('file path show');
+    print(file.path);
     return InkWell(
         onTap: () => OpenFile.open(file.path),
         child: Container(

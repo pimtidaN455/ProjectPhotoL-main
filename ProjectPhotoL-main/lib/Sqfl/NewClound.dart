@@ -1,9 +1,11 @@
 import 'dart:io';
 import 'dart:math';
+import 'package:file_picker/file_picker.dart';
 import 'package:path/path.dart' as path;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:project_photo_learn/Sqfl/Utility.dart';
 
 class PageCloudNew extends StatelessWidget {
@@ -63,10 +65,23 @@ class _MyHomePageState extends State<MyHomePage> {
         print(item.name);
         print("path : ");
         print(item.path);
+
+        final newFile = await saveFilePermanently(item);
+        print('From path : ');
+        print(item.path);
+        print('To path: ');
+        print(newFile.uri);
       }
     }
 
     setState(() {});
+  }
+
+  Future<File> saveFilePermanently(XFile item) async {
+    final appStorage = await getApplicationDocumentsDirectory();
+    final newFile = File('${appStorage.path}/${item.name}');
+
+    return File(item.path).copy(newFile.path);
   }
 
   @override
