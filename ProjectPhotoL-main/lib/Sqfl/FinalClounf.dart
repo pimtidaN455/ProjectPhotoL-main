@@ -1,10 +1,6 @@
 import 'dart:io';
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:project_photo_learn/Sqfl/Utility.dart';
 
 class PageCloud extends StatelessWidget {
   const PageCloud({Key? key}) : super(key: key);
