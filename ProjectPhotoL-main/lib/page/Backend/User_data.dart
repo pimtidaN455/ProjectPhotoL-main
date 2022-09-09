@@ -35,13 +35,12 @@ class user_file {
   // var filepath_W = File('./lib/page/Backend/datafile/client_data.json');
 
   user_file() {
-    getdata_user_file();
     print("LLLLLLLLLLLLLLLololo");
 
     // print("IIIIIIIIIIIIIIIII");
   }
 
-  void getdata_user_file() async {
+  getdata_user_file() async {
     // ignore: unused_local_variable
     var data_json = await getApplicationSupportDirectory()
         .then((Directory directory) async {

@@ -10,6 +10,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   user_file user = await new user_file();
   print("DDDDDDDDDDDDDDDDDDDDDDDDDD");
+  await user.getdata_user_file();
   print(await user.Firstname);
   print("DDDDDDDDDDDDDDDDDD");
   runApp(MyApp(

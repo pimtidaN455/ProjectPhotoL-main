@@ -13,9 +13,9 @@ class Photo {
       'id': id,
       'photoName': photoName,
       'photopath': photopath,
+      'photokeyword': photokeyword,
       'photoclass': photoclass,
       //'photodate': photodate,
-      'photokeyword': photokeyword,
     };
     return map;
   }
@@ -24,8 +24,14 @@ class Photo {
     id = map['id'];
     photoName = map['photoName'];
     photopath = map['photopath'];
+    photokeyword = map['photokeyword'];
     photoclass = map['photoclass'];
     //photodate = map['photodate'];
-    photokeyword = map['photokeyword'];
+  }
+
+  @override
+  String toString() {
+    // TODO: implement toString
+    return photopath;
   }
 }

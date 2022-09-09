@@ -1,4 +1,5 @@
-/*// ignore_for_file: unnecessary_null_comparison
+/*
+// ignore_for_file: unnecessary_null_comparison
 
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
@@ -22,7 +23,7 @@ class _SaveImageDemoState extends State<SaveImageDemo> {
 
   pickImageFromGallery(ImageSource source) {
     setState(() {
-      imageFile = ImagePicker.pickImage(source: source);
+      imageFile = ImagePicker.pickImage(source: source) as Future<File>;
     });
   }
 
@@ -100,4 +101,4 @@ class _SaveImageDemoState extends State<SaveImageDemo> {
       ),
     );
   }
-}*/
+} */

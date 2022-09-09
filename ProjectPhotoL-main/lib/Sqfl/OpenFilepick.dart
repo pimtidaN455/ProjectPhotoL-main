@@ -126,7 +126,6 @@ import 'package:project_photo_learn/my_style.dart';
 
 class FilesPage extends StatefulWidget {
   final List<PlatformFile> files;
-
   final ValueChanged<PlatformFile> onOpenedFile;
 
   const FilesPage({
@@ -173,7 +172,7 @@ class _FilesPageState extends State<FilesPage> {
                   ),
                 ))
           ],
-          automaticallyImplyLeading: false,
+          automaticallyImplyLeading: true,
         ),
         body: Center(
             child: GridView.builder(
@@ -197,11 +196,10 @@ class _FilesPageState extends State<FilesPage> {
     final fileSize =
         mb >= 1 ? '${mb.toStringAsFixed(2)} MB' : '${kb.toStringAsFixed(2)} KB';
     final extension = file.extension ?? 'none';
-    print('file path show');
-    print(file.path);
+    //print('file path show');
+    //print(file.path);
     return InkWell(
-        onTap: () => OpenFile.open(
-            '/data/user/0/com.example.project_photo_learn/cache/file_picker/member-v.jpg'),
+        onTap: () => OpenFile.open(file.path),
         child: Container(
           padding: EdgeInsets.all(8),
           child: Column(
@@ -231,6 +229,10 @@ class _FilesPageState extends State<FilesPage> {
               ),
               Text(
                 fileSize,
+                style: TextStyle(fontSize: 16),
+              ),
+              Text(
+                file.path.toString(),
                 style: TextStyle(fontSize: 16),
               )
             ],

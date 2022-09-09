@@ -9,7 +9,7 @@ import 'Photo.dart';
 import 'dart:async';
 
 class SaveImageDemoSQLite extends StatefulWidget {
-  //
+  
   SaveImageDemoSQLite() : super();
 
   final String title = "Flutter Save Image";
